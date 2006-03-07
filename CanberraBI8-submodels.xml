@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <submodel>
+    <name>redbeard</name>
+    <model>Aircraft/CanberraBI8/Models/RedBeard.xml</model>
+    <trigger>ai/submodels/red-beard-released</trigger>
+    <speed>0</speed>
+    <repeat>false</repeat>
+    <count>1</count>
+    <x-offset>-21.325</x-offset>
+    <y-offset>0</y-offset>
+    <z-offset>0.656</z-offset>
+    <yaw-offset>0.0</yaw-offset>
+    <pitch-offset>0.0</pitch-offset>
+    <eda>7.00</eda>
+    <weight>1750</weight>
+    <life>600</life>
+    <buoyancy>0</buoyancy>
+    <wind>true</wind>
+    <aero-stabilised>true</aero-stabilised>
+  </submodel>
+
+  <submodel>
+    <name>trajectory marker</name>
+    <model>Aircraft/CanberraBI8/Models/Trajectory-Marker.xml</model>
+    <trigger>ai/submodels/trajectory-markers</trigger>
+    <speed>0</speed>
+    <repeat>true</repeat>
+    <delay>1.0</delay>
+    <count>-1</count>
+    <x-offset>-67.0</x-offset>
+    <y-offset>0</y-offset>
+    <z-offset>2.8</z-offset>
+    <yaw-offset>0.0</yaw-offset>
+    <pitch-offset>0.0</pitch-offset>
+    <eda>1000000000.00</eda>
+    <life>900</life>
+    <buoyancy>32</buoyancy>
+    <wind>false</wind>
+    <aero-stabilised>true</aero-stabilised>
+  </submodel>
+
+</PropertyList>

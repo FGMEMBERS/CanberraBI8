@@ -28,7 +28,6 @@
     I also found a reference to 70-80 kt landing speeds whenthe tanks
     were nearly empty - I've gone for 80 kt with 0.1 (10%) fuel.
 -->
-
 <airplane mass="22700">
 
 <!-- Approach configuration -->
@@ -80,6 +79,10 @@
     <control-output control="SPOILER" side="left" prop="/surface-positions/left-spoiler-pos-norm"/>
     <control-output control="SPOILER" side="right" prop="/surface-positions/right-spoiler-pos-norm"/>
 
+    <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+    <control-output control="FLAP1" prop="/surface-positions/aileron-pos-norm"/>
+    <control-output control="SPOILER" prop="/surface-positions/spoiler-pos-norm"/>
+
     <control-speed control="FLAP0" transition-time="20"/>
     <control-speed control="FLAP1" transition-time="0.5"/>
     <control-speed control="SPOILER" transition-time="4.0"/>
@@ -99,6 +102,8 @@
     <control-output control="FLAP0" side="left" prop="/surface-positions/left-elevator-pos-norm"/>
     <control-output control="FLAP0" side="right" prop="/surface-positions/right-elevator-pos-norm"/>
 
+    <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+
     <control-speed control="FLAP0" transition-time="0.5"/>
 
   </hstab>
@@ -108,18 +113,22 @@
          length="2.36" chord="4.18" sweep="17">
     <stall aoa="28.0" width="3" peak="1.5"/>
     <flap0 start="0" end="1" lift="1.5" drag="1.4"/>
+
     <control-input axis="/controls/flight/rudder"
                    control="FLAP0" invert="true"/>
+
     <control-output control="FLAP0"
                     prop="/surface-positions/rudder-pos-norm"/>
+
     <control-speed control="FLAP0" transition-time="1.0"/>
+
   </vstab>
 
 <!-- Landing Gear -->
 <!-- nose -->
   <gear x="-3.8" y="0" z="-1.50"
         compression="0.3" spring="1.5" damp="1.0">
-    <control-input axis="/controls/flight/steering" control="STEER" />
+    <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
     <control-speed control="EXTEND" transition-time="12"/>
     <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
@@ -173,6 +182,6 @@
 
 <!-- Red Beard -->
   <weight x="-8.0" y="0" z="-0.10" size="0.9"
-          mass-prop="/yasim/weights/red-beard"/>
+          mass-prop="/yasim/weights/red-beard-lbs"/>
 
 </airplane>

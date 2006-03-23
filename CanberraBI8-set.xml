@@ -3,25 +3,26 @@
 ************************************************************************
 English Electric Canberra B(I)8 simulation config.
 
-2004-07-25 Lee Elliott
-2006-03-9  Josh Babcock
+2006-03-05 Lee Elliott
+2006-03-09 Josh Babcock
 ************************************************************************
 -->
 
 <PropertyList>
   <sim include="CanberraBI8-help.xml">
     <status>alpha</status>
+    <author>Lee Elliott, Josh Babcock</author>
     <flight-model>yasim</flight-model>
     <aero>CanberraBI8-yasim</aero>
     <fuel-fraction>1.0</fuel-fraction>
 
     <description>English Electric Canberra B(I)8 (YASim FDM)</description>
-
+    
     <startup>
       <splash-texture>Aircraft/CanberraBI8/CanberraBI8-splash.rgb</splash-texture>
     </startup>
 
-    <number-views type="int" archive="y">7</number-views>
+    <number-views type="int" archive="y">8</number-views>
 
     <virtual-cockpit archive="y">true</virtual-cockpit>
 
@@ -58,12 +59,39 @@ English Electric Canberra B(I)8 simulation config.
         <right-direction-deg type="double">270</right-direction-deg>
         <front-right-direction-deg type="double">315</front-right-direction-deg>
         <x-offset-m archive="y">0.1</x-offset-m>
-        <y-offset-m archive="y">0.11</y-offset-m>
+        <y-offset-m archive="y">-0.11</y-offset-m>
         <z-offset-m archive="y">0.55</z-offset-m>
         <pitch-offset-deg>-15</pitch-offset-deg>
         <default-field-of-view-deg>55</default-field-of-view-deg>
       </config>
     </view>
+
+    <view n="7">
+      <name>Drop View</name>
+      <type>lookat</type>
+      <config>
+        <eye-lat-deg-path>/sim/view[7]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[7]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[7]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[7]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[7]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[7]/heading-deg</eye-heading-deg-path>
+
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+
+        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">8.0</default-field-of-view-deg>
+
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0</y-offset-m>
+        <z-offset-m type="double">0</z-offset-m>
+        <target-z-offset-m archive="y" type="double">10.0</target-z-offset-m>
+      </config>
+    </view>
+    <current-view>
+      <field-of-view>55.0</field-of-view>
+    </current-view>
 
 <!-- Shift the camera target point back -->
     <view n="1">
@@ -118,7 +146,7 @@ English Electric Canberra B(I)8 simulation config.
       <CanberraBI8>
         <inner-haze>0.5</inner-haze>
         <outer-haze>0.25</outer-haze>
-		  <texture>skin.rgb</texture>
+        <texture>skin.rgb</texture>
       </CanberraBI8>
     </model>
 
@@ -138,18 +166,18 @@ English Electric Canberra B(I)8 simulation config.
       <path>Aircraft/CanberraBI8/CanberraBI8-submodels.xml</path>
     </submodels>
 
-<!-- Flaps - Only two detents! -->
+<!-- Flaps - Only two detents -->
     <flaps>
       <setting>0.00</setting>
       <setting>1.00</setting>
     </flaps>
 
-<!-- Speedbrake detents -->
+<!-- Spoilers - Four detents -->
     <spoilers>
-      <setting>0.0</setting>
+      <setting>0.00</setting>
       <setting>0.33</setting>
       <setting>0.66</setting>
-      <setting>1.0</setting>
+      <setting>1.00</setting>
     </spoilers>
 
   </sim>
@@ -157,47 +185,63 @@ English Electric Canberra B(I)8 simulation config.
 
 <!-- Autopilot -->
   <autopilot>
-    <settings>
-      <target-agl-ft type="float">800</target-agl-ft>
-      <target-altitude-ft type="float">3000</target-altitude-ft>
-      <target-AoA-deg type="float">2</target-AoA-deg>
-      <target-pitch-deg type="float">14</target-pitch-deg>
-      <target-vfps type="float">0</target-vfps>
-      <take-off-pitch-deg type="float">6.5</take-off-pitch-deg>
-      <climb-out-pitch-deg type="float">6</climb-out-pitch-deg>
-      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
-      <target-speed-kt type="float">350.0</target-speed-kt>
-      <target-mach type="float">0.80</target-mach>
-      <approach-AoA-deg type="float">2.0</approach-AoA-deg>
-      <auto-flap-target-deg type="float">1.6</auto-flap-target-deg>
-    </settings>
-
     <locks>
-      <auto-take-off type="string">Enabled</auto-take-off>
-      <auto-landing type="string">Enabled</auto-landing>
-      <rudder-control type="string">Initialised</rudder-control>
-      <approach-AoA-lock type="string">Initialised</approach-AoA-lock>
-      <auto-flap-control type="string">Manual</auto-flap-control>
+      <aoa type="string">initialised</aoa>
+      <auto-flap-control type="string">manual</auto-flap-control>
+      <auto-landing type="string">enabled</auto-landing>
+      <auto-take-off type="string">enabled</auto-take-off>
+      <common-aileron-control type="string">off</common-aileron-control>
+      <common-elevator-control type="string">off</common-elevator-control>
+      <ca-roll-hold type="string">initialised</ca-roll-hold>
+      <ca-true-heading-hold type="string">initialised</ca-true-heading-hold>
+      <ca-dg-heading-hold type="string">initialised</ca-dg-heading-hold>
+      <ca-nav1-hold type="string">initialised</ca-nav1-hold>
+      <ce-altitude-hold type="string">initialised</ce-altitude-hold>
+      <ce-aoa-hold type="string">initialised</ce-aoa-hold>
+      <ce-mach-climb-hold type="string">initialised</ce-mach-climb-hold>
+      <ce-pitch-hold type="string">initialised</ce-pitch-hold>
+      <ce-terrain-follow-hold type="string">initialised</ce-terrain-follow-hold>
+      <ce-vfps-hold type="string">initialised</ce-vfps-hold>
+      <rudder-control type="string">initialised</rudder-control>
     </locks>
 
+    <settings>
+      <approach-aoa-deg type="float">5.0</approach-aoa-deg>
+      <auto-flap-target-aoa-deg type="float">0.0</auto-flap-target-aoa-deg>
+      <auto-landing-touchdown-alt-ft type="float">300.0</auto-landing-touchdown-alt-ft>
+      <auto-landing-circuit-speed-kt type="float">200.0</auto-landing-circuit-speed-kt>
+      <climb-out-pitch-trans-time-sec type="float">9.0</climb-out-pitch-trans-time-sec>
+      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
+      <ground-roll-rotate-speed-kts type="float">70</ground-roll-rotate-speed-kts>
+      <take-off-initial-pitch-deg type="float">0.0</take-off-initial-pitch-deg>
+      <take-off-final-pitch-deg type="float">9.0</take-off-final-pitch-deg>
+      <target-agl-ft type="float">800</target-agl-ft>
+      <target-altitude-ft type="float">3000</target-altitude-ft>
+      <target-aoa-deg type="float">1.5</target-aoa-deg>
+      <target-climb-rate-fps type="float">10</target-climb-rate-fps>
+      <target-pitch-deg type="float">0</target-pitch-deg>
+      <target-speed-kt type="float">350.0</target-speed-kt>
+      <target-mach type="float">0.6</target-mach>
+    </settings>
   </autopilot>
 
-<!-- Start with ... -->
+<!-- Start with the Parking Brake on, canopy and BB doors open -->
   <controls>
     <gear>
-      <brake-parking type="double">1.0</brake-parking>
+      <brake-parking type="float">1.0</brake-parking>
     </gear>
 
     <hatch>
       <hatch-pos-norm type="float">1.0</hatch-pos-norm>
     </hatch>
-    
+
     <canopy>
-      <canopy-pos-norm type="float">0</canopy-pos-norm>
+      <canopy-pos-norm type="float">1.0</canopy-pos-norm>
     </canopy>
     
     <bb-doors>
-      <bb-door-pos-norm type="float">0</bb-door-pos-norm>
+      <left-bb-door-pos-norm type="float">1.0</left-bb-door-pos-norm>
+      <right-bb-door-pos-norm type="float">1.0</right-bb-door-pos-norm>
     </bb-doors>
 
   </controls>
@@ -205,6 +249,7 @@ English Electric Canberra B(I)8 simulation config.
 <!-- Key mappings -->
   <input>
     <keyboard>
+
       <key n="67">
         <name>C</name>
         <desc>Toggle Canopy</desc>
@@ -235,14 +280,9 @@ English Electric Canberra B(I)8 simulation config.
       <key n="74">
         <name>J</name>
         <desc>Release Red Beard</desc>
-        <!--binding n="0">  ** handled by submodel
+        <binding n="0">
           <command>property-assign</command>
-          <property>/yasim/weights/red-beard</property>
-          <value type="double">0.0</value>
-        </binding-->
-        <binding n="1">
-          <command>property-assign</command>
-          <property>ai/submodels/red-beard-released</property>
+          <property>/ai/submodels/red-beard-released</property>
           <value type="bool">true</value>
         </binding>
       </key>
@@ -253,6 +293,16 @@ English Electric Canberra B(I)8 simulation config.
         <binding n="0">
           <command>nasal</command>
           <script>CanberraBI8.toggle_traj_mkr()</script>
+        </binding>
+      </key>
+      
+<!-- Update Drop View position -->
+       <key n="85">
+        <name>U</name>
+        <desc>Update Drop View position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>CanberraBI8.update_drop_view_pos()</script>
         </binding>
       </key>
     </keyboard>
@@ -281,10 +331,10 @@ English Electric Canberra B(I)8 simulation config.
         <tank-num type="int">2</tank-num>
       </tank>
       <tank n="3">
-        <tank-num type="int">1</tank-num>
+        <tank-num type="int">3</tank-num>
       </tank>
       <tank n="4">
-        <tank-num type="int">2</tank-num>
+        <tank-num type="int">4</tank-num>
       </tank>
     </fuel>
   </consumables>
@@ -292,14 +342,15 @@ English Electric Canberra B(I)8 simulation config.
 <!-- Weight entry for Red Beard -->
   <yasim>
     <weights>
-      <red-beard type="float">1750</red-beard>
+      <red-beard-lbs type="float">2000</red-beard-lbs>
     </weights>
   </yasim>
 
 <!-- Nasal files/scripts -->
   <nasal>
     <CanberraBI8>
-      <file>/Aircraft/CanberraBI8/Nasal/CanberraBI8.nas</file>
+      <file>Aircraft/CanberraBI8/Nasal/CanberraBI8.nas</file>
+      <script>start_up();</script>
     </CanberraBI8>
   </nasal>
 

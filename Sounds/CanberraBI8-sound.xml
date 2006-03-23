@@ -30,11 +30,7 @@
       </condition>
       <volume>
         <property>/engines/engine[0]/n2</property>
-        <interpolation>
-          <entry> <ind>0</ind> <dep>0</dep> </entry>
-          <entry> <ind>50</ind> <dep>0.25</dep> </entry>
-          <entry> <ind>100</ind> <dep>0.25</dep> </entry>
-        </interpolation>
+        <factor type="double">0.0025</factor>
       </volume>
       <pitch>
         <property>/engines/engine[0]/n2</property>
@@ -69,15 +65,11 @@
       </condition>
       <volume>
         <property>/engines/engine[1]/n2</property>
-        <interpolation>
-          <entry> <ind>0</ind> <dep>0</dep> </entry>
-          <entry> <ind>50</ind> <dep>0.25</dep> </entry>
-          <entry> <ind>100</ind> <dep>0.25</dep> </entry>
-        </interpolation>
+        <factor type="double">0.0025</factor>
       </volume>
       <pitch>
         <property>/engines/engine[1]/n2</property>
-        <factor>0.0201</factor>
+        <factor>0.02</factor>
         <offset>-0.1</offset>
       </pitch>
     </engine>

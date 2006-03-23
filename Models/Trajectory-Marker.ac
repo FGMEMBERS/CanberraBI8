@@ -1,28 +1,30 @@
 AC3Db
-MATERIAL "DefaultGrey" rgb 1 1 1  amb 0 0 0  emis 1 1 1  spec 0 0 0  shi 0  trans 0
+MATERIAL "ac3dmat3" rgb 1 0 0  amb 1 0 0  emis 1 0 0  spec 1 0 0  shi 0  trans 0
+MATERIAL "ac3dmat9" rgb 0 0 1  amb 0 0 1  emis 0 0 1  spec 0 0 1  shi 0  trans 0
 OBJECT world
-kids 1
+kids 2
 OBJECT poly
-name "Plane"
-texture "4lights.rgb"
-texrep 1 1
-crease 30
-numvert 4
+name "line"
+numvert 2
+0 0 -30
+0 0 30
+numsurf 1
+SURF 0x22
+mat 0
+refs 2
+0 0 0
 1 1 0
-1 -1 0
--1 -1 0
--1 1 0
-numsurf 2
-SURF 0x00
-mat 0
-refs 3
-1 0.0078125 0.9921875
-0 0.0078125 0.5
-2 0.5 0.9921875
-SURF 0x00
-mat 0
-refs 3
-2 0.5 0.9921875
-0 0.0078125 0.5
-3 0.5 0.5
+kids 0
+OBJECT poly
+name "line"
+loc 0 5 0
+numvert 2
+0 5 0
+0 -5 0
+numsurf 1
+SURF 0x22
+mat 1
+refs 2
+0 0 1
+1 0 0
 kids 0

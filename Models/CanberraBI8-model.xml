@@ -286,7 +286,7 @@
 <animation>
 	<type>rotate</type>
 	<object-name>FUS-L-Bomb-Door</object-name>
-	<property>controls/bb-doors/bb-door-pos-norm</property>
+	<property>controls/bb-doors/left-bb-door-pos-norm</property>
 	<factor>60</factor>
 	<center>
 		<y-m>-0.37</y-m>
@@ -305,7 +305,7 @@
 <animation>
 	<type>rotate</type>
 	<object-name>FUS-R-Bomb-Door</object-name>
-	<property>controls/bb-doors/bb-door-pos-norm</property>
+	<property>controls/bb-doors/right-bb-door-pos-norm</property>
 	<factor>60</factor>
 	<center>
 		<y-m>0.37</y-m>
@@ -374,7 +374,7 @@
 	<type>scale</type>
 	<object-name>FLA-L-Inner</object-name>
 	<object-name>FLA-L-Outer</object-name>
-	<property>engines/engine/n1[0]</property>
+	<property>engines/engine[0]/n1</property>
 	<x-factor>0.01</x-factor>
 	<x-offset>-0.1</x-offset>
 	<x-min>0.05</x-min>
@@ -429,7 +429,7 @@
 	<type>scale</type>
 	<object-name>FLA-R-Inner</object-name>
 	<object-name>FLA-R-Outer</object-name>
-	<property>engines/engine/n1[1]</property>
+	<property>engines/engine[1]/n1</property>
 	<x-factor>0.01</x-factor>
 	<x-offset>-0.1</x-offset>
 	<x-min>0.05</x-min>

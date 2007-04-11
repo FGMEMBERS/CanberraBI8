@@ -181,7 +181,12 @@ English Electric Canberra B(I)8 simulation config.
     </spoilers>
 
   </sim>
-
+	
+	<ai>
+		<submodels>
+			<trajectory-markers type="bool">0</trajectory-markers>
+		</submodels>
+	</ai>
 
 <!-- Autopilot -->
   <autopilot>

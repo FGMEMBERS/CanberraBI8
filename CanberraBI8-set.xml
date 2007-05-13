@@ -118,6 +118,12 @@ English Electric Canberra B(I)8 simulation config.
       </config>
     </view>
 
+    <view n="6">
+      <config>
+        <target-z-offset-m archive="y" type="double">8.0</target-z-offset-m>
+      </config>
+    </view>
+
 <!-- Sound -->
     <sound>
       <audible>true</audible>

@@ -140,8 +140,7 @@ English Electric Canberra B(I)8 simulation config.
 
 <!-- Hud -->
     <hud>
-      <path>Aircraft/CanberraBI8/Huds/CanberraBI8-hud1.xml</path>
-      <visibility>true</visibility>
+      <visibilit n="1"y>true</visibility>
     </hud>
 
 <!-- Model -->

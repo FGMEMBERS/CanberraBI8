@@ -140,7 +140,7 @@ English Electric Canberra B(I)8 simulation config.
 
 <!-- Hud -->
     <hud>
-      <visibilit n="1"y>true</visibility>
+      <visibility n="1">true</visibility>
     </hud>
 
 <!-- Model -->

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+	<help>
+		<title>Canberra B(I)8</title>
+		<key>
+			<name>C</name>
+			<desc>Open/close canopy</desc>
+		</key>
+		<key>
+			<name>D</name>
+			<desc>Open/close bomb bay doors</desc>
+		</key>
+		<key>
+			<name>E</name>
+			<desc>Open/close entrance hatch</desc>
+		</key>
+		<key>
+			<name>J</name>
+			<desc>Release Redbeard bomb</desc>
+		</key>
+		<key>
+			<name>K</name>
+			<desc>Toggle trajectory markers</desc>
+		</key>
+		<line>You can select an alternate paint scheme by setting /sim/model/CanberraBI8/texture="alt-skin.rgb", or substituting your own.</line>
+		<line></line>
+		<line>The following data are based on the actual aircraft, not this flight model.</line>
+		<line></line>
+		<line>Stall speeds:</line>
+		<line>Lbs.   Dirty  Clean</line>
+		<line>30000  75     85</line>
+		<line>40000  90     100</line>
+		<line>50000  105    115</line>
+		<line></line>
+		<line>Takeoff speed:</line>
+		<line>Lbs.    Normal   Minimum</line>
+		<line>35000   110      101</line>
+		<line>40000   115      108</line>
+		<line>45000   125      114</line>
+		<line>50000   135      121</line>
+		<line>55000   140      127</line>
+		<line></line>
+		<line>Climbout:</line>
+		<line>330 kts. up to .72M, then maintain .72M</line>
+		<line></line>
+		<line>Descent:</line>
+		<line>Airbrakes full out</line>
+		<line>.79M down to 40000'</line>
+		<line>.75M below 40000' down to 365 kts. then maintain 365 kts.</line>
+		<line></line>
+		<line>Approach:</line>
+		<line>UC down in pattern, flaps down at runway threshold</line>
+		<line>Weight             RPM  IAS(pattern &amp; final)   IAS(touchdown)</line>
+		<line>30000              6300 150                    125</line>
+		<line>40000              6600 150-160                150</line>
+		<line>40000(one engine)  6700 160                    150</line>
+	</help>
+</PropertyList>

@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<!--
+************************************************************************
+English Electric Canberra B(I)8 simulation config.
+
+2006-03-05 Lee Elliott
+2006-03-09 Josh Babcock
+************************************************************************
+-->
+
+<PropertyList>
+  <sim include="CanberraBI8-help.xml">
+    <status>alpha</status>
+    <author>Lee Elliott, Josh Babcock</author>
+    <flight-model>yasim</flight-model>
+    <aero>CanberraBI8-yasim</aero>
+    <fuel-fraction>1.0</fuel-fraction>
+
+    <description>English Electric Canberra B(I)8 (Rembrandt ) (YASim FDM)</description>
+    <status type="string">FGUK SE V1.5</status>
+    <startup>
+      <splash-texture>Aircraft/CanberraBI8/CanberraBI8-splash.rgb</splash-texture>
+    </startup>
+
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+
+    <chase-distance-m type="double" archive="y">-30.0</chase-distance-m>
+
+    <view n="0">
+      <internal archive="y">true</internal>
+      <config>
+        <x-offset-m archive="y">-0.22</x-offset-m>
+        <y-offset-m archive="y">1.38</y-offset-m>
+        <z-offset-m archive="y">3.74</z-offset-m>
+        <pitch-offset-deg>0</pitch-offset-deg>
+        <default-field-of-view-deg>55</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="100">
+      <name>Bomb Aimer View</name>
+      <type>lookfrom</type>
+      <internal archive="y">true</internal>
+      <config>
+        <from-model type="bool">true</from-model>
+        <from-model-idx type="int">0</from-model-idx>
+        <ground-level-nearplane-m type="double">0.05f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">55.0</default-field-of-view-deg>
+        <default-pitch-deg type="double">-15</default-pitch-deg>
+        <default-heading-deg type="double">0</default-heading-deg>
+        <front-direction-deg type="double">0</front-direction-deg>
+        <front-left-direction-deg type="double">45</front-left-direction-deg>
+        <left-direction-deg type="double">90</left-direction-deg>
+        <back-left-direction-deg type="double">135</back-left-direction-deg>
+        <back-direction-deg type="double">180</back-direction-deg>
+        <back-right-direction-deg type="double">225</back-right-direction-deg>
+        <right-direction-deg type="double">270</right-direction-deg>
+        <front-right-direction-deg type="double">315</front-right-direction-deg>
+        <x-offset-m archive="y">0.1</x-offset-m>
+        <y-offset-m archive="y">-0.11</y-offset-m>
+        <z-offset-m archive="y">0.55</z-offset-m>
+        <pitch-offset-deg>-15</pitch-offset-deg>
+        <default-field-of-view-deg>85</default-field-of-view-deg>
+      </config>
+    </view>
+
+    <view n="101">
+      <name>Drop View</name>
+      <type>lookat</type>
+      <config>
+        <eye-lat-deg-path>/sim/view[101]/latitude-deg</eye-lat-deg-path>
+        <eye-lon-deg-path>/sim/view[101]/longitude-deg</eye-lon-deg-path>
+        <eye-alt-ft-path>/sim/view[101]/altitude-ft</eye-alt-ft-path>
+        <eye-roll-deg-path>/sim/view[101]/roll-deg</eye-roll-deg-path>
+        <eye-pitch-deg-path>/sim/view[101]/pitch-deg</eye-pitch-deg-path>
+        <eye-heading-deg-path>/sim/view[101]/heading-deg</eye-heading-deg-path>
+
+        <at-model type="bool">true</at-model>
+        <at-model-idx type="int">0</at-model-idx>
+
+        <ground-level-nearplane-m type="double">1.0f</ground-level-nearplane-m>
+        <default-field-of-view-deg type="double">8.0</default-field-of-view-deg>
+
+        <x-offset-m type="double">0</x-offset-m>
+        <y-offset-m type="double">0</y-offset-m>
+        <z-offset-m type="double">0</z-offset-m>
+        <target-z-offset-m archive="y" type="double">10.0</target-z-offset-m>
+      </config>
+    </view>
+    <current-view>
+      <field-of-view>55.0</field-of-view>
+    </current-view>
+
+<!-- Shift the camera target point back -->
+    <view n="1">
+      <config>
+        <target-z-offset-m archive="y" type="double">8.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="2">
+      <config>
+        <y-offset-m archive="y" type="double">5.4</y-offset-m>
+        <z-offset-m archive="y">-19.7</z-offset-m>
+        <target-z-offset-m archive="y" type="double">8.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="3">
+      <config>
+        <target-z-offset-m archive="y" type="double">8.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="5">
+      <config>
+        <target-z-offset-m archive="y" type="double">8.0</target-z-offset-m>
+      </config>
+    </view>
+
+    <view n="6">
+      <config>
+        <target-z-offset-m archive="y" type="double">8.0</target-z-offset-m>
+      </config>
+    </view>
+
+<!-- Sound -->
+    <sound>
+      <audible>true</audible>
+      <path>Aircraft/CanberraBI8/Sounds/CanberraBI8-sound.xml</path>
+    </sound>
+
+
+
+<!-- Hud -->
+    <hud>
+      <path n="1">Aircraft/CanberraBI8/Huds/hud2.xml</path>
+      <visibility n="1">true</visibility>
+   <palette>
+    <color n="0">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">0.38</red>
+     <green type="float">1.0</green>
+     <blue type="float">0.22</blue>
+    </color>
+    <color n="1">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">1.0</red>
+     <green type="float">0.2</green>
+     <blue type="float">0.0</blue>
+    </color>
+   </palette>
+    </hud>
+
+<!-- Model -->
+    <model>
+      <path>Aircraft/CanberraBI8/Models/CanberraBI8.xml</path>
+	  <livery>
+<file type="string"/>
+</livery>
+      <CanberraBI8>
+        <inner-haze>0.5</inner-haze>
+        <outer-haze>0.25</outer-haze>
+        <texture>skin.rgb</texture>
+      </CanberraBI8>
+    </model>
+
+<!-- Systems -->
+    <systems>
+      <autopilot>
+        <path>Aircraft/CanberraBI8/Systems/CanberraBI8-autopilot.xml</path>
+      </autopilot>
+      <electrical>
+        <path>Aircraft/CanberraBI8/Systems/CanberraBI8-electrical.xml</path>
+      </electrical>
+    </systems>
+
+<!--sub models -->
+    <submodels>
+      <serviceable type="bool">1</serviceable>
+      <path>Aircraft/CanberraBI8/CanberraBI8-submodels.xml</path>
+    </submodels>
+
+<!-- Flaps - Only two detents -->
+    <flaps>
+      <setting>0.00</setting>
+      <setting>1.00</setting>
+    </flaps>
+
+<!-- Spoilers - Four detents -->
+    <spoilers>
+      <setting>0.00</setting>
+      <setting>0.33</setting>
+      <setting>0.66</setting>
+      <setting>1.00</setting>
+    </spoilers>
+
+	
+	<menubar include="Dialogs/canberra-menu.xml"/>
+  </sim>
+	
+	<ai>
+		<submodels>
+			<trajectory-markers type="bool">0</trajectory-markers>
+		</submodels>
+	</ai>
+
+<!-- Autopilot -->
+  <autopilot>
+    <locks>
+      <aoa type="string">initialised</aoa>
+      <auto-flap-control type="string">manual</auto-flap-control>
+      <auto-landing type="string">enabled</auto-landing>
+      <auto-take-off type="string">enabled</auto-take-off>
+      <common-aileron-control type="string">off</common-aileron-control>
+      <common-elevator-control type="string">off</common-elevator-control>
+      <ca-roll-hold type="string">initialised</ca-roll-hold>
+      <ca-true-heading-hold type="string">initialised</ca-true-heading-hold>
+      <ca-dg-heading-hold type="string">initialised</ca-dg-heading-hold>
+      <ca-nav1-hold type="string">initialised</ca-nav1-hold>
+      <ce-altitude-hold type="string">initialised</ce-altitude-hold>
+      <ce-aoa-hold type="string">initialised</ce-aoa-hold>
+      <ce-mach-climb-hold type="string">initialised</ce-mach-climb-hold>
+      <ce-pitch-hold type="string">initialised</ce-pitch-hold>
+      <ce-agl-hold type="string">initialised</ce-agl-hold>
+      <ce-vfps-hold type="string">initialised</ce-vfps-hold>
+      <rudder-control type="string">initialised</rudder-control>
+    </locks>
+
+    <settings>
+      <approach-aoa-deg type="float">5.0</approach-aoa-deg>
+      <auto-flap-target-aoa-deg type="float">0.0</auto-flap-target-aoa-deg>
+      <auto-landing-touchdown-alt-ft type="float">300.0</auto-landing-touchdown-alt-ft>
+      <auto-landing-circuit-speed-kt type="float">200.0</auto-landing-circuit-speed-kt>
+      <climb-out-pitch-trans-time-sec type="float">9.0</climb-out-pitch-trans-time-sec>
+      <ground-roll-heading-deg type="float">-999.9</ground-roll-heading-deg>
+      <ground-roll-rotate-speed-kts type="float">70</ground-roll-rotate-speed-kts>
+      <take-off-initial-pitch-deg type="float">0.0</take-off-initial-pitch-deg>
+      <take-off-final-pitch-deg type="float">9.0</take-off-final-pitch-deg>
+      <target-agl-ft type="float">800</target-agl-ft>
+      <target-altitude-ft type="float">3000</target-altitude-ft>
+      <target-aoa-deg type="float">1.5</target-aoa-deg>
+      <target-climb-rate-fps type="float">10</target-climb-rate-fps>
+      <target-pitch-deg type="float">0</target-pitch-deg>
+      <target-speed-kt type="float">350.0</target-speed-kt>
+      <target-mach type="float">0.6</target-mach>
+    </settings>
+  </autopilot>
+
+<!-- Start with the Parking Brake on, canopy and BB doors open -->
+  <controls>
+    <gear>
+      <brake-parking type="float">1.0</brake-parking>
+    </gear>
+
+    <hatch>
+      <hatch-pos-norm type="float">1.0</hatch-pos-norm>
+    </hatch>
+
+    <canopy>
+      <canopy-pos-norm type="float">1.0</canopy-pos-norm>
+    </canopy>
+    
+    <bb-doors>
+      <left-bb-door-pos-norm type="float">1.0</left-bb-door-pos-norm>
+      <right-bb-door-pos-norm type="float">1.0</right-bb-door-pos-norm>
+    </bb-doors>
+
+  </controls>
+
+<!-- Key mappings -->
+  <input>
+    <keyboard>
+
+      <key n="67">
+        <name>C</name>
+        <desc>Toggle Canopy</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>CanberraBI8.toggle_canopy()</script>
+        </binding>
+      </key>
+
+      <key n="68">
+        <name>D</name>
+        <desc>Toggle Bomb Bay Doors</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>CanberraBI8.toggle_bb_doors()</script>
+        </binding>
+      </key>
+
+      <key n="69">
+        <name>E</name>
+        <desc>Toggle Entrance Hatch</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>CanberraBI8.toggle_hatch()</script>
+        </binding>
+      </key>
+
+      <key n="74">
+        <name>J</name>
+        <desc>Release Red Beard</desc>
+        <binding n="0">
+          <command>property-assign</command>
+          <property>/ai/submodels/red-beard-released</property>
+          <value type="bool">true</value>
+        </binding>
+      </key>
+
+      <key n="75">
+        <name>K</name>
+        <desc>Toggle trajectory markers</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>CanberraBI8.toggle_traj_mkr()</script>
+        </binding>
+      </key>
+      
+<!-- Update Drop View position -->
+       <key n="85">
+        <name>U</name>
+        <desc>Update Drop View position</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>CanberraBI8.update_drop_view_pos()</script>
+        </binding>
+      </key>
+    </keyboard>
+  </input>
+
+<!-- Engine indexes -->
+  <engines>
+    <engine n="0">
+      <engine-num type="int">0</engine-num>
+    </engine>
+    <engine n="1">
+      <engine-num type="int">1</engine-num>
+    </engine>
+  </engines>
+
+<!-- Fuel Tank indexes -->
+  <consumables>
+    <fuel>
+      <tank n="0">
+        <tank-num type="int">0</tank-num>
+      </tank>
+      <tank n="1">
+        <tank-num type="int">1</tank-num>
+      </tank>
+      <tank n="2">
+        <tank-num type="int">2</tank-num>
+      </tank>
+      <tank n="3">
+        <tank-num type="int">3</tank-num>
+      </tank>
+      <tank n="4">
+        <tank-num type="int">4</tank-num>
+      </tank>
+    </fuel>
+  </consumables>
+  
+<!-- Weight entry for Red Beard -->
+  <yasim>
+    <weights>
+      <red-beard-lbs type="float">2000</red-beard-lbs>
+    </weights>
+  </yasim>
+
+<!-- Nasal files/scripts -->
+  <nasal>
+    <CanberraBI8>
+      <file>Aircraft/CanberraBI8/Nasal/CanberraBI8.nas</file>
+<file>Aircraft/CanberraBI8/Nasal/light.nas</file>
+
+      <script>start_up();</script>
+	  <file>Aircraft/CanberraBI8/Nasal/light.nas</file>
+	  <file>Aircraft/CanberraBI8/Nasal/liveries.nas</file>
+    </CanberraBI8>
+	<low>
+      <file>Aircraft/CanberraBI8/Nasal/low.nas</file>
+    </low>
+  </nasal>
+
+</PropertyList>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ 
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> 6.05 </x-m>
+      <y-m> -0.15 </y-m>
+      <z-m> 0.8 </z-m>
+    </offsets>
+  </model>
+    
+
+</PropertyList>
+

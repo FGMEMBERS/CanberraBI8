@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ 
+  <!-- Instruments -->
+  
+
+  <model>
+    <path>Aircraft/Instruments-3d/standby-adi/stdby-adi.xml</path>
+    <offsets>
+      <x-m> -3.345 </x-m>
+      <y-m> -0.112 </y-m>
+      <z-m> 0.195 </z-m>
+<pitch-deg>-8</pitch-deg>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/clock/clock.xml</path>
+    <offsets>
+       <x-m> -3.32 </x-m>
+      <y-m> -0.29 </y-m>
+      <z-m> 0.04 </z-m>
+      <pitch-deg>-8</pitch-deg>
+
+    </offsets>
+  </model>
+
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/HSI/hsi.xml</path>
+    <offsets>
+      <x-m> -3.32 </x-m>
+      <y-m> -0.12 </y-m>
+      <z-m> 0.04 </z-m>
+      <pitch-deg>-8</pitch-deg>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/GMeter/gmeter.xml</path>
+    <offsets>
+      <x-m> -3.34 </x-m>
+      <y-m> -0.195 </y-m>
+      <z-m> 0.19 </z-m>
+      <pitch-deg>-8</pitch-deg>
+    </offsets>
+  </model>
+
+  
+  <model>
+    <path>Aircraft/Instruments-3d/altimeter/altimeter.xml</path>
+    <offsets>
+      <x-m> -3.33 </x-m>
+      <y-m> -0.12 </y-m>
+      <z-m> 0.125 </z-m>
+<pitch-deg>-8</pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/asi/airspeed.xml</path>
+    <offsets>
+      <x-m> -3.345 </x-m>
+      <y-m> -0.21 </y-m>
+      <z-m> 0.11 </z-m>
+<pitch-deg>-8</pitch-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/rpm/rpm-1.xml</path>
+    <offsets>
+      <x-m> -3.325 </x-m>
+      <y-m> -0.04</y-m>
+      <z-m> 0.2 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/rpm/rpm-2.xml</path>
+    <offsets>
+      <x-m> -3.325 </x-m>
+      <y-m> 0.02 </y-m>
+      <z-m> 0.2 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/egt/exh1.xml</path>
+    <offsets>
+      <x-m> -3.320 </x-m>
+      <y-m> -0.04</y-m>
+      <z-m> 0.14 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/egt/exh2.xml</path>
+    <offsets>
+      <x-m> -3.320 </x-m>
+      <y-m> 0.02</y-m>
+      <z-m> 0.14 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/epr/eprL.xml</path>
+    <offsets>
+      <x-m> -3.310 </x-m>
+      <y-m> -0.04 </y-m>
+      <z-m> 0.07 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/epr/eprR.xml</path>
+    <offsets>
+      <x-m> -3.310 </x-m>
+      <y-m> 0.02 </y-m>
+      <z-m> 0.07 </z-m>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/Trim/trimelevator.xml</path>
+    <offsets>
+      <x-m> -3.3 </x-m>
+      <y-m> -0.21 </y-m>
+      <z-m> -0.0375</z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/flightindicator/flight-indicator.xml</path>
+    <offsets>
+      <x-m> -3.3 </x-m>
+      <y-m> -0.28 </y-m>
+      <z-m> -0.05</z-m>
+      <pitch-deg>-5</pitch-deg>
+<roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/oilpressure/oilpressureL.xml</path>
+    <offsets>
+     <x-m> -3.310 </x-m>
+      <y-m> 0.03 </y-m>
+      <z-m> 0.0 </z-m>
+      <pitch-deg>0</pitch-deg>
+<roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/oilpressure/oilpressureR.xml</path>
+    <offsets>
+      <x-m> -3.310 </x-m>
+      <y-m> 0.03 </y-m>
+      <z-m> -0.06 </z-m>
+      <pitch-deg>0</pitch-deg>
+
+<roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/Fuelflow/FF.xml</path>
+    <offsets>
+      <x-m> -3.315 </x-m>
+      <y-m> -0.29 </y-m>
+      <z-m> 0.12</z-m>
+      <pitch-deg>0</pitch-deg>
+<roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/percentfuel/percentfuel.xml</path>
+    <offsets>
+      <x-m> -3.315 </x-m>
+      <y-m> -0.25 </y-m>
+      <z-m> 0.19</z-m>
+      <pitch-deg>0</pitch-deg>
+<roll-deg>0</roll-deg>
+    </offsets>
+  </model>
+
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/vsi/vsi.xml</path>
+    <offsets>
+      <x-m> -3.315 </x-m>
+      <y-m> -0.21 </y-m>
+      <z-m> 0.04 </z-m>
+      <pitch-deg>-8</pitch-deg>
+    </offsets>
+  </model>
+
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/Fuel/fuel.xml</path>
+    <offsets>
+      <x-m> -3.32</x-m>
+      <y-m> -0.37</y-m>
+      <z-m> 0.0 </z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/Fuel/fuel1.xml</path>
+    <offsets>
+      <x-m> -3.329</x-m>
+      <y-m> -0.37</y-m>
+      <z-m> -0.07 </z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/Panel/Instruments/uhf-box/uhf-box.xml</path>
+    <offsets>
+      <x-m> -3.306</x-m>
+      <y-m> -0.1</y-m>
+      <z-m> -0.049 </z-m>
+      <pitch-deg>-5</pitch-deg>
+    </offsets>
+  </model>
+
+
+  
+</PropertyList>
+

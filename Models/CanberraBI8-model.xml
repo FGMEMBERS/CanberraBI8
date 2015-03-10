@@ -4,52 +4,212 @@
 
 <path>CanberraBI8.ac</path>
 
+
+<!-- MP sound call -->
+  <sound><path>Aircraft/CanberraBI8/Sounds/mp-sound.xml</path></sound>
+
 <!-- Skin switching code -->
 
-<animation>
+<nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/CanberraBI8/Models/Liveries", 10);
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
+  <animation>
+    <!-- Objets opaques -->
 	<type>material</type>
-	<global type="bool">true</global>
-	<object-name>FUS-Hull</object-name>
-	<texture-prop>/sim/model/CanberraBI8/texture</texture-prop>
-</animation>
+    <object-name>Low-Rez-Body</object-name>
+    <object-name>FUS-Hull</object-name>
+    <object-name>CP-R-Frame-Inside</object-name>
+     <object-name>CP-F-Canopy-Frame</object-name>
+	<!-- <object-name>CP-R-Frame-Inside</object-name> -->
+    <object-name>WNG-L</object-name>
+    <object-name>WNG-R</object-name>
+    <object-name>WNG-R-Aileron</object-name>
+    <object-name>WNG-L-Aileron</object-name>
+    <object-name>WNG-F-Tip-Tank</object-name>
+    <object-name>WNG-R-Tip-Tank</object-name>
+    <object-name>ENG-L-Nacelle</object-name>
+    <object-name>ENG-R-Nacelle</object-name>
+    <object-name>EMP-Tail-Plane</object-name>
+    <object-name>EMP-L-Elev</object-name>
+    <object-name>EMP-R-Elev</object-name>
+    <object-name>EMP-Fin</object-name>
+    <object-name>EMP-Rudder</object-name>
+    <object-name>UC-L-Door</object-name>
+    <object-name>UC-LI-Door-Outside</object-name>
+    <object-name>UC-RI-Door-Outside</object-name>
+    <object-name>UC-R-Door</object-name>
+    <object-name>WNG-R-Inner-Flap</object-name>
+    <object-name>WNG-L-Inner-Flap</object-name>
+    <object-name>WNG-R-Outer-Flap</object-name>
+    <object-name>WNG-L-Outer-Flap</object-name>
+    <object-name>FUS-LO-Bomb-Door</object-name>
 
-<animation>
-	<type>material</type>
-	<object-name>FUS-Fuel</object-name>
-	<texture-prop>/sim/model/CanberraBI8/texture</texture-prop>
-</animation>
+    <object-name>FUS-RO-Bomb-Door</object-name>
+    <object-name>UC-RF-Door.002</object-name>
+    <object-name>UC-RF-Door.001</object-name>
+	<object-name>FUS-Hatch-Outside</object-name>
+    
 
-<animation>
-	<type>material</type>
-	<object-name>Low-Rez</object-name>
-	<texture-prop>/sim/model/CanberraBI8/texture</texture-prop>
-</animation>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+	
+	<specular>
+      <red-prop>specular/red</red-prop>
+      <green-prop>specular/green</green-prop>
+      <blue-prop>specular/blue</blue-prop>
+    </specular>
 
-<!-- L.O.D. -->
+    <emission>
+      <red-prop>emission/red</red-prop>
+      <green-prop>emission/green</green-prop>
+      <blue-prop>emission/blue</blue-prop>
+    </emission>
+  </animation>
+  
+  <!-- Bump Map Effect -->
+ <effect>
+    <inherits-from>Aircraft/CanberraBI8/Models/Effects/eec_bumpspec</inherits-from>
+    <object-name>Low-Rez-Body</object-name>
+    <object-name>FUS-Hull</object-name>
+    <object-name>CP-R-Frame-Inside</object-name>
+    <object-name>CP-F-Canopy-Frame</object-name>
+    <object-name>WNG-L</object-name>
+    <object-name>WNG-R</object-name>
+    <object-name>WNG-R-Aileron</object-name>
+    <object-name>WNG-L-Aileron</object-name>
+    <object-name>WNG-F-Tip-Tank</object-name>
+    <object-name>WNG-R-Tip-Tank</object-name>
+    <object-name>ENG-L-Nacelle</object-name>
+    <object-name>ENG-R-Nacelle</object-name>
+    <object-name>EMP-Tail-Plane</object-name>
+    <object-name>EMP-L-Elev</object-name>
+    <object-name>EMP-R-Elev</object-name>
+    <object-name>EMP-Fin</object-name>
+    <object-name>EMP-Rudder</object-name>
+    <object-name>UC-L-Door</object-name>
+    <object-name>UC-LI-Door-Outside</object-name>
+    <object-name>UC-RI-Door-Outside</object-name>
+    <object-name>UC-R-Door</object-name>
+    <object-name>WNG-R-Inner-Flap</object-name>
+    <object-name>WNG-L-Inner-Flap</object-name>
+    <object-name>WNG-R-Outer-Flap</object-name>
+    <object-name>WNG-L-Outer-Flap</object-name>
+    <object-name>FUS-LO-Bomb-Door</object-name>
+    <object-name>FUS-RO-Bomb-Door</object-name>
+    <object-name>UC-RF-Door.002</object-name>
+    <object-name>UC-RF-Door.001</object-name>
+	<object-name>FUS-Hatch-Outside</object-name>
+ </effect>
 
-<animation>
-	<type>range</type>
-	<name>High-LOD</name>
-	<object-name>High-Rez</object-name>
-	<min-m>0</min-m>
-	<max-m>2000</max-m>
-</animation>
+  
+  <!-- Glass -->
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+    <object-name>hatch</object-name>
+    <object-name>main</object-name>
+<object-name>Low-Rez-Glass</object-name>
+<object-name>CP-R-Glass</object-name>
+<object-name>wCP-F-Glass</object-name>
+<object-name>CP-F-Glass</object-name>
+<object-name>FUS-Windows</object-name>
+<object-name>WNG-R-Lens</object-name>
+<object-name>WNG-L-Lens</object-name>
 
-<animation>
-	<type>range</type>
-	<name>Low-LOD</name>
-	<object-name>Low-Rez</object-name>
-	<min-m>2000</min-m>
-	<max-m>10000</max-m>
-</animation>
+  </animation>
 
-<animation>
-	<type>range</type>
-	<name>Light-LOD</name>
-	<object-name>Lights</object-name>
-	<min-m>0</min-m>
-	<max-m>10000</max-m>
-</animation>
+  
+  <!-- Transparent Surfaces for Rembrandt rendering -->
+   <effect>
+       <inherits-from>Aircraft/CanberraBI8/Models/Effects/glass</inherits-from>
+       <object-name>hatch</object-name>
+    <object-name>main</object-name>
+<object-name>Low-Rez-Glass</object-name>
+<object-name>CP-R-Glass</object-name>
+<object-name>wCP-F-Glass</object-name>
+<object-name>CP-F-Glass</object-name>
+<object-name>FUS-Windows</object-name>
+<object-name>WNG-R-Lens</object-name>
+<object-name>WNG-L-Lens</object-name>
+   </effect>
+   
+   <effect>
+     <inherits-from>Effects/model-transparent</inherits-from>
+     <object-name>hatch</object-name>
+    <object-name>main</object-name>
+<object-name>Low-Rez-Glass</object-name>
+<object-name>CP-R-Glass</object-name>
+<object-name>wCP-F-Glass</object-name>
+<object-name>CP-F-Glass</object-name>
+<object-name>FUS-Windows</object-name>
+<object-name>WNG-R-Lens</object-name>
+<object-name>WNG-L-Lens</object-name>
+	   
+	   
+    </effect>
+
+
+   <!-- Solid Surfaces for Rembrandt rendering -->
+   <animation>
+    
+   <object-name>FUS-Top</object-name>
+		<object-name>CPT-Canopy-R-Surround</object-name>
+		<object-name>CPT-Canopy-Hoop</object-name>
+		<object-name>WING-L-Aileron-Top</object-name>
+		<object-name>WING-L-Flap-Top</object-name>
+		<object-name>WING-L-Slat-Top</object-name>
+		<object-name>WING-R-Flap-Top</object-name>
+		<object-name>WING-R-Aileron-Top</object-name>
+		<object-name>WING-R-Slat-Top</object-name>
+		<object-name>FUS-Jets</object-name>
+		<object-name>FUS-Bottom</object-name>
+		<object-name>WING-L-Slat-Bottom</object-name>
+		<object-name>WING-L-Aileron-Bottom</object-name>
+		<object-name>WING-L-Flap-Bottom</object-name>
+		<object-name>WING-R-Flap-Bottom</object-name>
+		<object-name>WING-R-Aileron-Bottom</object-name>
+		<object-name>WING-R-Slat-Bottom</object-name>
+        <object-name>UC-L-Door-OS</object-name>
+		<object-name>UC-R-Door-OS</object-name>
+		<object-name>UC-F-Door-OS</object-name>
+		<object-name>FUS-RProbe</object-name>
+		<object-name>FUS-LProbe</object-name>
+		<object-name>FUS-WA-Bottom-WWells</object-name>
+		<object-name>FUS-WA-Bottom-Intake</object-name>
+		<object-name>CPT-Canopy-F-Surround</object-name>
+		<object-name>WING-Caps</object-name>
+		<object-name>FUS-Ant</object-name>
+		<object-name>FUS-LProbe</object-name>
+		<object-name>FUS-RProbe</object-name>
+		<object-name>UC-F-F-Strut</object-name>
+		<object-name>UC-F-Upper-Leg</object-name>
+		<object-name>UC-F-Lower-LegT</object-name>
+		<object-name>UC-F-Lower-LegB</object-name>
+		<object-name>UC-F-Tyre</object-name>
+		<object-name>UC-F-Hub</object-name>
+		<object-name>UC-L-Upper-Leg</object-name>
+		<object-name>UC-L-Strut</object-name>
+		<object-name>UC-L-Arm</object-name>
+		<object-name>UC-L-Lower-Leg</object-name>
+		<object-name>UC-L-Hub</object-name>
+		<object-name>UC-L-Tyre</object-name>
+		<object-name>UC-R-Hub</object-name>
+		<object-name>UC-R-Tyre</object-name>
+		<object-name>UC-R-Arm</object-name>
+		<object-name>UC-R-Lower-Leg</object-name>
+		<object-name>UC-R-Upper-Leg</object-name>
+		 <object-name>hudframe</object-name>
+		
+    </animation>
+
 
 <!-- ** Control Surfaces ** -->
 
@@ -323,137 +483,7 @@
 
 <!-- *** Misc *** -->
 
-<!-- Exhaust -->
 
-<animation>
-	<type>noshadow</type>
-	<object-name>FLA-L-Inner</object-name>
-	<object-name>FLA-R-Inner</object-name>
-	<object-name>FLA-L-Outer</object-name>
-	<object-name>FLA-R-Outer</object-name>
-</animation>
-
-<animation>
-	<type>select</type>
-	<object-name>FLA-L-Inner</object-name>
-	<object-name>FLA-L-Outer</object-name>
-	<condition>
-		<property>engines/engine[0]/running</property>
-	</condition>
-</animation>
-
-<animation>
-	<type>shader</type>
-	<shader>heat-haze</shader>
-	<object-name>FLA-L-Inner</object-name>
-	<factor-prop>sim/model/CanberraBI8/inner-haze</factor-prop>
-	<speed-prop>engines/engine[0]/n2</speed-prop>
-</animation>
-
-<animation>
-	<type>shader</type>
-	<shader>heat-haze</shader>
-	<object-name>FLA-L-Outer</object-name>
-	<factor-prop>sim/model/CanberraBI8/outer-haze</factor-prop>
-	<speed-prop>engines/engine[0]/n1</speed-prop>
-</animation>
-
-<animation>
-	<type>translate</type>
-	<object-name>FLA-L-Inner</object-name>
-	<object-name>FLA-L-Outer</object-name>
-	<offset-m>12.635003</offset-m>
-	<axis>
-		<x>12.249186</x>
-		<y>-3.092502</y>
-		<z>0.192814</z>
-	</axis>
-</animation>
-
-<animation>
-	<type>scale</type>
-	<object-name>FLA-L-Inner</object-name>
-	<object-name>FLA-L-Outer</object-name>
-	<property>engines/engine[0]/n1</property>
-	<x-factor>0.01</x-factor>
-	<x-offset>-0.1</x-offset>
-	<x-min>0.05</x-min>
-	<y-factor>0.1</y-factor>
-	<y-offset>1</y-offset>
-	<y-min>0.4</y-min>
-	<y-max>1</y-max>
-	<z-factor>0.1</z-factor>
-	<z-offset>1</z-offset>
-	<z-min>0.4</z-min>
-	<z-max>1</z-max>
-</animation>
-
-<animation>
-	<type>select</type>
-	<object-name>FLA-R-Inner</object-name>
-	<object-name>FLA-R-Outer</object-name>
-	<condition>
-		<property>engines/engine[1]/running</property>
-	</condition>
-</animation>
-
-<animation>
-	<type>shader</type>
-	<shader>heat-haze</shader>
-	<object-name>FLA-R-Inner</object-name>
-	<factor-prop>sim/model/CanberraBI8/inner-haze</factor-prop>
-	<speed-prop>engines/engine[1]/n2</speed-prop>
-</animation>
-
-<animation>
-	<type>shader</type>
-	<shader>heat-haze</shader>
-	<object-name>FLA-R-Outer</object-name>
-	<factor-prop>sim/model/CanberraBI8/outer-haze</factor-prop>
-	<speed-prop>engines/engine[1]/n1</speed-prop>
-</animation>
-
-<animation>
-	<type>translate</type>
-	<object-name>FLA-R-Inner</object-name>
-	<object-name>FLA-R-Outer</object-name>
-	<offset-m>12.635003</offset-m>
-	<axis>
-		<x>12.249186</x>
-		<y>3.092502</y>
-		<z>0.192814</z>
-	</axis>
-</animation>
-
-<animation>
-	<type>scale</type>
-	<object-name>FLA-R-Inner</object-name>
-	<object-name>FLA-R-Outer</object-name>
-	<property>engines/engine[1]/n1</property>
-	<x-factor>0.01</x-factor>
-	<x-offset>-0.1</x-offset>
-	<x-min>0.05</x-min>
-	<y-factor>0.1</y-factor>
-	<y-offset>1</y-offset>
-	<y-min>0.4</y-min>
-	<y-max>1</y-max>
-	<z-factor>0.1</z-factor>
-	<z-offset>1</z-offset>
-	<z-min>0.4</z-min>
-	<z-max>1</z-max>
-</animation>
-
-<!-- Chrome -->
-
-<animation>
-	<type>shader</type>
-	<shader>chrome</shader>
-	<name>body-shaders</name>
-	<texture>chrome2.rgb</texture>
-	<object-name>ENG-L-Pipe-Out</object-name>
-	<object-name>ENG-R-Pipe-Out</object-name>
-	<object-name>FUS-Mirror</object-name>
-</animation>
 
 <!-- Bomb Drop -->
 
@@ -848,742 +878,350 @@
 	</axis>
 </animation>
 
-<!-- ** Lights ** -->
 
-<!-- Lenses -->
 
-<animation>
-	<type>material</type>
-	<object-name>FUS-Top-Beacon</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<not>
-			<equals>
-				<property>/controls/lighting/beacon</property>
-				<value>0</value>
-			</equals>
-		</not>
-	</condition>
-	<emission>
-		<offset>1</offset>
-		<factor>-1</factor>
-		<red-prop>/sim/model/CanberraBI8/lights/beacon-dim</red-prop>
-		<green>1</green>
-		<blue>1</blue>
-	</emission>
+
+
+
+<!-- FGUK added effects  -->
+
+<!-- LIGHTS -->
+<model>
+    <path>Aircraft/CanberraBI8/Models/lights/beacon.xml</path>
+    <offsets>
+      <x-m>13.15</x-m>
+      <y-m> 0</y-m>
+      <z-m> 1.35</z-m>
+
+
+          </offsets>
+  </model> 
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/lights/beacon.xml</path>
+    <offsets>
+       <x-m>13.7</x-m>
+      <y-m> 0</y-m>
+      <z-m> -0.6</z-m>
+
+    </offsets>
+  </model>
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/lights/RedLight.xml</path>
+    <offsets>
+      <x-m> 19.5</x-m>
+      <y-m> 0</y-m>
+      <z-m> 1.3</z-m>
+
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/RedLight.xml</path>
+    <offsets>
+      <x-m>  7.75 </x-m>
+      <y-m> -9.51  </y-m>
+      <z-m> 1.0</z-m>
+
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/GreenLight.xml</path>
+    <offsets>
+       <x-m>  7.75 </x-m>
+      <y-m> 9.51  </y-m>
+      <z-m> 1.0</z-m>
+
+
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/StrobeWhite.xml</path>
+    <offsets>
+      <x-m>  7.6 </x-m>
+      <y-m> -9.3  </y-m>
+      <z-m> 1.0</z-m>
+
+
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/StrobeWhite.xml</path>
+    <offsets>
+       <x-m>  7.6 </x-m>
+      <y-m> 9.3  </y-m>
+      <z-m> 1.0</z-m>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Effects/smoke/smokeL.xml</path>
+    <offsets>
+      <x-m>  11.7 </x-m>
+      <y-m>  -3.0</y-m>
+      <z-m> -0.2</z-m>
+
+    </offsets>
+  </model>
+
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Effects/smoke/smokeR.xml</path>
+    <offsets>
+      <x-m>  11.7</x-m>
+      <y-m>  3.0</y-m>
+      <z-m> -0.2</z-m>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Effects/trail/trailL.xml</path>
+    <offsets>
+       <x-m>  11.7 </x-m>
+      <y-m>  -3.0</y-m>
+      <z-m> 0</z-m>
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Effects/trail/trailR.xml</path>
+    <offsets>
+     <x-m>  11.7</x-m>
+      <y-m>  3.0</y-m>
+      <z-m> 0</z-m>
+    </offsets>
+  </model>
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Effects/tiptrail/tiptrail.xml</path>
+    <offsets>
+       <x-m>  7.6 </x-m>
+      <y-m> 9.3  </y-m>
+      <z-m> 1.0</z-m>
+    </offsets>
+  </model>
+
+   <model>
+    <path>Aircraft/CanberraBI8/Models/Effects/tiptrail/tiptrail.xml</path>
+    <offsets>
+       <x-m>  7.6 </x-m>
+      <y-m> -9.3  </y-m>
+      <z-m> 1.0</z-m>
+    </offsets>
+  </model>
+
+
+<!-- Interior -->
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+  
+   <!-- aircraft wash modeled in the lines below -->
+  <model>
+    <name>aircraft_wash_l</name>
+    <path>Aircraft/CanberraBI8/Models/wash/aircraft_wash.xml</path>
+    <condition>
+    <equals>
+    <property>controls/state/low_level</property>
+    <value>1</value>
+    </equals>
+    </condition>
+    <offsets>
+      <x-m> 25.00 </x-m>
+      <y-m>  4.50 </y-m>
+      <z-m>  0.00 </z-m>
+      <pitch-deg> 0 </pitch-deg>
+    </offsets>
+  </model>
+ 
+  <model>
+    <name>aircraft_wash_r</name>
+    <path>Aircraft/CanberraBI8/Models/wash/aircraft_wash.xml</path>
+    <condition>
+      <equals>
+        <property>controls/state/low_level</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m> 25.00 </x-m>
+      <y-m> -4.50 </y-m>
+      <z-m>  0.00 </z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>aircraft_wash_l</object-name>
+    <object-name>aircraft_wash_r</object-name>
+    <property>position/altitude-agl-ft</property>
+    <condition>
+      <equals>
+        <property>controls/state/low_level</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <interpolation>
+      <entry><ind>   0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 300 </ind><dep> -90 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  1 </z>
+    </axis>
+  </animation>
+
+<model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour.xml</path>
+		<offsets>
+			<x-m>7.5</x-m>
+			<y-m>-1.0</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>-25</heading-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour.xml</path>
+		<offsets>
+			<x-m>7.5</x-m>
+			<y-m>1.0</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>25</heading-deg>
+		</offsets>
+	</model>
+ 
+ <model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour2.xml</path>
+		<offsets>
+			<x-m>8.5</x-m>
+			<y-m>-5</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>45</heading-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour2.xml</path>
+		<offsets>
+			<x-m>8.5</x-m>
+			<y-m>5</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>-45</heading-deg>
+		</offsets>
+	</model>
+	
+	 <!-- Taxi light cone -->  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/landinglight.xml</path>
+    <name>NoseGearLandinglightL</name>     
+    <offsets>
+      <x-m>  7.6 </x-m>
+      <y-m> -9.1  </y-m>
+      <z-m> 1.0</z-m>
+      <pitch-deg>  -10 </pitch-deg>
+      <heading-deg>0 </heading-deg>     
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/landinglight.xml</path>
+    <name>NoseGearLandinglightR</name>     
+    <offsets>
+     <x-m>  7.6 </x-m>
+      <y-m> 9.1  </y-m>
+      <z-m> 1.0</z-m>
+      <pitch-deg>  -10 </pitch-deg>
+      <heading-deg> 0 </heading-deg>     
+    </offsets>
+  </model>  
+  
+  <model>
+    <name>Taxi-Light-Left</name>
+    <path>Aircraft/CanberraBI8/Models/lights/light-cone.xml</path>
+    <offsets>
+     <x-m>  7.6 </x-m>
+      <y-m> -9.1  </y-m>
+      <z-m> 1.0</z-m>
+      <pitch-deg>   -10.000 </pitch-deg>
+      <heading-deg>  0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>Taxi-Light-Right</name>
+    <path>Aircraft/CanberraBI8/Models/lights/light-cone.xml</path>
+    <offsets>
+      <x-m>  7.6 </x-m>
+      <y-m> 9.1  </y-m>
+      <z-m> 1.0</z-m>
+      <pitch-deg>   -10.000 </pitch-deg>
+      <heading-deg> 0.000 </heading-deg>
+    </offsets>
+  </model>
+
+  
+  <animation>
+    <type>select</type>
+    <object-name>Taxi-Light-Left</object-name>
+    <object-name>Taxi-Light-Right</object-name>
+    <object-name>NoseGearLandinglightL</object-name>     
+    <object-name>NoseGearLandinglightR</object-name> 
+    <condition>
+    <equals>
+    <property>gear/gear[0]/position-norm</property>
+    <value> 1 </value>
+    </equals>
+    </condition>
 </animation>
 
-<animation>
-	<type>material</type>
-	<object-name>FUS-Top-Beacon</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<equals>
-			<property>/controls/lighting/beacon</property>
-			<value>0</value>
-		</equals>
-	</condition>
-	<emission>
-		<red>0</red>
-		<green>0</green>
-		<blue>0</blue>
-	</emission>
-</animation>
 
-<animation>
-	<type>material</type>
-	<object-name>EMP-Tail-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<not>
-			<equals>
-				<property>/controls/lighting/nav-lights</property>
-				<value>0</value>
-			</equals>
-		</not>
-	</condition>
-	<emission>
-		<red>1</red>
-		<green>0</green>
-		<blue>0</blue>
-	</emission>
-</animation>
+<!-- pilot -->
+<model>
+    <path>Aircraft/CanberraBI8/Models/pilot/pilot.ac</path>
+    <offsets>
+      <x-m> 7.85 </x-m>
+      <y-m> -0.3 </y-m>
+      <z-m> -.3 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- pilot invisible from internally -->
 
-<animation>
-	<type>material</type>
-	<object-name>EMP-Tail-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<equals>
-			<property>/controls/lighting/nav-lights</property>
-			<value>0</value>
-		</equals>
-	</condition>
-	<emission>
-		<red>0</red>
-		<green>0</green>
-		<blue>0</blue>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>WNG-L-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<not>
-			<equals>
-				<property>/controls/lighting/nav-lights</property>
-				<value>0</value>
-			</equals>
-		</not>
-	</condition>
-	<emission>
-		<red>1</red>
-		<green>0</green>
-		<blue>0</blue>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>WNG-L-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<equals>
-			<property>/controls/lighting/nav-lights</property>
-			<value>0</value>
-		</equals>
-	</condition>
-	<emission>
-		<red>0</red>
-		<green>0</green>
-		<blue>0</blue>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>WNG-R-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<not>
-			<equals>
-				<property>/controls/lighting/nav-lights</property>
-				<value>0</value>
-			</equals>
-		</not>
-	</condition>
-	<emission>
-		<red>0</red>
-		<green>1</green>
-		<blue>0</blue>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>WNG-R-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<equals>
-			<property>/controls/lighting/nav-lights</property>
-			<value>0</value>
-		</equals>
-	</condition>
-	<emission>
-		<red>0</red>
-		<green>0</green>
-		<blue>0</blue>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>WNG-R-Landing-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<not>
-			<equals>
-				<property>/controls/lighting/landing-lights</property>
-				<value>0</value>
-			</equals>
-		</not>
-	</condition>
-	<emission>
-		<red>1</red>
-		<green>1</green>
-		<blue>1</blue>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>WNG-R-Landing-Light</object-name>
-	<global type="bool">true</global>
-	<condition>
-		<equals>
-			<property>/controls/lighting/landing-lights</property>
-			<value>0</value>
-		</equals>
-	</condition>
-	<emission>
-		<red>0</red>
-		<green>0</green>
-		<blue>0</blue>
-	</emission>
-</animation>
-
-<!-- Landing -->
-
-	<LIT-LandingXparams>
-		<light-near>0.4</light-near>
-		<light-med>0.8</light-med>
-		<light-far>10</light-far>
-	</LIT-LandingXparams>
-
-	<animation>
-		<name>LIT-LandingXGroup</name>
-		<object-name>LIT-Landing-Right</object-name>
-		<object-name>LIT-Landing-Left</object-name>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<name>LIT-LandingXGroupNight</name>
-		<object-name>LIT-LandingXGroup</object-name>
-		<condition>
-			<and>
-				<greater-than>
-					<property>/controls/lighting/landing-lights</property>
-					<value>0</value>
-				</greater-than>
-				<greater-than>
-					<property>/sim/time/sun-angle-rad</property>
-					<value>1.57</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-
-	<animation>
-		<type>alpha-test</type>
-		<object-name>LIT-LandingXGroup</object-name>
-		<alpha-factor>0.001</alpha-factor>
-	</animation>
-
-	<animation>
-		<type>flash</type>
-		<object-name>LIT-Landing-Left</object-name>
-		<center>
-			<x-m>7.676509</x-m>
-			<y-m>-9.219258</y-m>
-			<z-m>0.974499</z-m>
-		</center>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-		<power>5</power>
-		<factor>1</factor>
-		<offset>0</offset>
-		<two-sides type="bool">false</two-sides>
-		<min>0</min>
-		<max>1</max>
-	</animation>
-
-	<animation>
-		<type>flash</type>
-		<object-name>LIT-Landing-Right</object-name>
-		<center>
-			<x-m>7.676509</x-m>
-			<y-m>9.219258</y-m>
-			<z-m>0.974499</z-m>
-		</center>
-		<axis>
-			<x>-1</x>
-			<y>0</y>
-			<z>0</z>
-		</axis>
-		<power>5</power>
-		<factor>1</factor>
-		<offset>0</offset>
-		<two-sides type="bool">false</two-sides>
-		<min>0</min>
-		<max>1</max>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-Landing-Left</object-name>
-		<center>
-			<x-m>7.677</x-m>
-			<y-m>-9.219</y-m>
-			<z-m>0.974</z-m>
-		</center>
-		<offset>0.5</offset>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-LandingXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-LandingXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-LandingXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-Landing-Right</object-name>
-		<center>
-			<x-m>7.677</x-m>
-			<y-m>9.219</y-m>
-			<z-m>0.974</z-m>
-		</center>
-		<offset>0.5</offset>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-LandingXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-LandingXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-LandingXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-<!-- Left Nav -->
-
-	<LIT-Left-NavXparams>
-		<light-near>0.4</light-near>
-		<light-med>0.8</light-med>
-		<light-far>10</light-far>
-	</LIT-Left-NavXparams>
-
-	<animation>
-		<name>LIT-Left-NavXGroup</name>
-		<object-name>LIT-Left-NavX0</object-name>
-		<object-name>LIT-Left-NavX1</object-name>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<name>LIT-Left-NavXGroupNight</name>
-		<object-name>LIT-Left-NavXGroup</object-name>
-		<condition>
-			<and>
-				<greater-than>
-					<property>/controls/lighting/nav-lights</property>
-					<value>0</value>
-				</greater-than>
-				<greater-than>
-					<property>/sim/time/sun-angle-rad</property>
-					<value>1.57</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-
-	<animation>
-		<type>alpha-test</type>
-		<object-name>LIT-Left-NavXGroup</object-name>
-		<alpha-factor>0.001</alpha-factor>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>LIT-Left-NavX0</object-name>
-		<offset-m>11.142131</offset-m>
-		<axis>
-			<x>5.673178</x>
-			<y>-9.551359</y>
-			<z>0.569817</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>LIT-Left-NavX1</object-name>
-		<offset-m>12.202174</offset-m>
-		<axis>
-			<x>7.77139</x>
-			<y>-9.554648</y>
-			<z>1.094544</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>billboard</type>
-		<object-name>LIT-Left-NavX0</object-name>
-		<spherical type="bool">true</spherical>
-	</animation>
-
-	<animation>
-		<type>billboard</type>
-		<object-name>LIT-Left-NavX1</object-name>
-		<spherical type="bool">true</spherical>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-Left-NavX0</object-name>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-Left-NavXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-Left-NavXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-Left-NavXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-Left-NavX1</object-name>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-Left-NavXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-Left-NavXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-Left-NavXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-<!-- Right Nav -->
-
-	<LIT-Right-NavXparams>
-		<light-near>0.4</light-near>
-		<light-med>0.8</light-med>
-		<light-far>10</light-far>
-	</LIT-Right-NavXparams>
-
-	<animation>
-		<name>LIT-Right-NavXGroup</name>
-		<object-name>LIT-Right-NavX0</object-name>
-		<object-name>LIT-Right-NavX1</object-name>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<name>LIT-Right-NavXGroupNight</name>
-		<object-name>LIT-Right-NavXGroup</object-name>
-		<condition>
-			<and>
-				<greater-than>
-					<property>/controls/lighting/nav-lights</property>
-					<value>0</value>
-				</greater-than>
-				<greater-than>
-					<property>/sim/time/sun-angle-rad</property>
-					<value>1.57</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-
-	<animation>
-		<type>alpha-test</type>
-		<object-name>LIT-Right-NavXGroup</object-name>
-		<alpha-factor>0.001</alpha-factor>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>LIT-Right-NavX0</object-name>
-		<offset-m>11.142133</offset-m>
-		<axis>
-			<x>5.673177</x>
-			<y>9.551362</y>
-			<z>0.569816</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>LIT-Right-NavX1</object-name>
-		<offset-m>12.202176</offset-m>
-		<axis>
-			<x>7.77139</x>
-			<y>9.55465</y>
-			<z>1.094544</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>billboard</type>
-		<object-name>LIT-Right-NavX0</object-name>
-		<spherical type="bool">true</spherical>
-	</animation>
-
-	<animation>
-		<type>billboard</type>
-		<object-name>LIT-Right-NavX1</object-name>
-		<spherical type="bool">true</spherical>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-Right-NavX0</object-name>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-Right-NavXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-Right-NavXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-Right-NavXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-Right-NavX1</object-name>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-Right-NavXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-Right-NavXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-Right-NavXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-<!-- Beacon -->
-
-	<LIT-BeaconXparams>
-		<light-near>0.4</light-near>
-		<light-med>0.8</light-med>
-		<light-far>10</light-far>
-	</LIT-BeaconXparams>
-
-	<animation>
-		<name>LIT-BeaconXGroup</name>
-		<object-name>LIT-BeaconX0</object-name>
-		<object-name>LIT-BeaconX1</object-name>
-	</animation>
-
-	<animation>
-		<type>select</type>
-		<name>LIT-BeaconXGroupNight</name>
-		<object-name>LIT-BeaconXGroup</object-name>
-		<condition>
-			<and>
-				<greater-than>
-					<property>/controls/lighting/beacon</property>
-					<value>0</value>
-				</greater-than>
-				<greater-than>
-					<property>/sim/time/sun-angle-rad</property>
-					<value>1.57</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-
-	<animation>
-		<type>alpha-test</type>
-		<object-name>LIT-BeaconXGroup</object-name>
-		<alpha-factor>0.001</alpha-factor>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>LIT-BeaconX0</object-name>
-		<offset-m>13.149044</offset-m>
-		<axis>
-			<x>13.081032</x>
-			<y>0.0</y>
-			<z>1.43565</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>LIT-BeaconX1</object-name>
-		<offset-m>13.682912</offset-m>
-		<axis>
-			<x>13.673895</x>
-			<y>0.0</y>
-			<z>-0.59666</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>billboard</type>
-		<object-name>LIT-BeaconX0</object-name>
-		<spherical type="bool">true</spherical>
-	</animation>
-
-	<animation>
-		<type>billboard</type>
-		<object-name>LIT-BeaconX1</object-name>
-		<spherical type="bool">true</spherical>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-BeaconX0</object-name>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-BeaconXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-BeaconXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-BeaconXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-BeaconX1</object-name>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-BeaconXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-BeaconXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-BeaconXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
-
-	<animation>
-		<type>scale</type>
-		<object-name>LIT-BeaconX0</object-name>
-		<property>/sim/model/CanberraBI8/lights/beacon-dim</property>
-		<x-factor>-1</x-factor>
-		<y-factor>0</y-factor>
-		<z-factor>-1</z-factor>
-		<x-offset>1</x-offset>
-		<y-offset>1</y-offset>
-		<z-offset>1</z-offset>
-	</animation>
-
-	<animation>
-		<type>scale</type>
-		<object-name>LIT-BeaconX1</object-name>
-		<property>/sim/model/CanberraBI8/lights/beacon-dim</property>
-		<x-factor>-1</x-factor>
-		<y-factor>0</y-factor>
-		<z-factor>-1</z-factor>
-		<x-offset>1</x-offset>
-		<y-offset>1</y-offset>
-		<z-offset>1</z-offset>
-	</animation>
-
-<!-- Tail -->
-
-	<LIT-TailXparams>
-		<light-near>0.4</light-near>
-		<light-med>0.8</light-med>
-		<light-far>10</light-far>
-	</LIT-TailXparams>
-
-	<animation>
-		<type>select</type>
-		<name>LIT-TailXNight</name>
-		<object-name>LIT-TailX</object-name>
-		<condition>
-			<and>
-				<greater-than>
-					<property>/controls/lighting/nav-lights</property>
-					<value>0</value>
-				</greater-than>
-				<greater-than>
-					<property>/sim/time/sun-angle-rad</property>
-					<value>1.57</value>
-				</greater-than>
-			</and>
-		</condition>
-	</animation>
-
-	<animation>
-		<type>alpha-test</type>
-		<object-name>LIT-TailX</object-name>
-		<alpha-factor>0.001</alpha-factor>
-	</animation>
-
-	<animation>
-		<type>translate</type>
-		<object-name>LIT-TailX</object-name>
-		<offset-m>19.435026</offset-m>
-		<axis>
-			<x>19.791531</x>
-			<y>0</y>
-			<z>1.299525</z>
-		</axis>
-	</animation>
-
-	<animation>
-		<type>billboard</type>
-		<object-name>LIT-TailX</object-name>
-		<spherical type="bool">true</spherical>
-	</animation>
-
-	<animation>
-		<type>dist-scale</type>
-		<object-name>LIT-TailX</object-name>
-		<interpolation>
-			<entry>
-				<ind>0</ind>
-				<dep alias="../../../../LIT-TailXparams/light-near"/>
-			</entry>
-			<entry>
-				<ind>500</ind>
-				<dep alias="../../../../LIT-TailXparams/light-med"/>
-			</entry>
-			<entry>
-				<ind>16000</ind>
-				<dep alias="../../../../LIT-TailXparams/light-far"/>
-			</entry>
-		</interpolation>
-	</animation>
+    <animation>
+        <type>select</type>
+        <object-name>pilot</object-name>
+    <condition>
+    <not>
+      <property>sim/current-view/internal</property>
+    </not>
+    </condition>
+    </animation>	
+  
 
 </PropertyList>

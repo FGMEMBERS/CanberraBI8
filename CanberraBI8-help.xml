@@ -4,6 +4,10 @@
 	<help>
 		<title>Canberra B(I)8</title>
 		<key>
+			<name>}</name>
+			<desc>Engine Start up / shut down</desc>
+		</key>
+		<key>
 			<name>C</name>
 			<desc>Open/close canopy</desc>
 		</key>

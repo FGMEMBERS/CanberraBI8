@@ -1,0 +1,1178 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<path>CanberraBI8.ac</path>
+<!-- Rembrandt edition -->
+
+<!-- MP sound call -->
+  <sound><path>Aircraft/CanberraBI8/Sounds/mp-sound.xml</path></sound>
+
+<!-- Skin switching code -->
+
+<nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new("Aircraft/CanberraBI8/Models/Liveries", 10);
+    </load>
+    <unload>
+      livery_update.stop();
+    </unload>
+  </nasal>
+
+  <animation>
+    <!-- Objets opaques -->
+	<type>material</type>
+    <object-name>Low-Rez-Body</object-name>
+    <object-name>FUS-Hull</object-name>
+    <object-name>CP-R-Frame-Inside</object-name>
+     <object-name>CP-F-Canopy-Frame</object-name>
+	<!-- <object-name>CP-R-Frame-Inside</object-name> -->
+    <object-name>WNG-L</object-name>
+    <object-name>WNG-R</object-name>
+    <object-name>WNG-R-Aileron</object-name>
+    <object-name>WNG-L-Aileron</object-name>
+    <object-name>WNG-F-Tip-Tank</object-name>
+    <object-name>WNG-R-Tip-Tank</object-name>
+    <object-name>ENG-L-Nacelle</object-name>
+    <object-name>ENG-R-Nacelle</object-name>
+    <object-name>EMP-Tail-Plane</object-name>
+    <object-name>EMP-L-Elev</object-name>
+    <object-name>EMP-R-Elev</object-name>
+    <object-name>EMP-Fin</object-name>
+    <object-name>EMP-Rudder</object-name>
+    <object-name>UC-L-Door</object-name>
+    <object-name>UC-LI-Door-Outside</object-name>
+    <object-name>UC-RI-Door-Outside</object-name>
+    <object-name>UC-R-Door</object-name>
+    <object-name>WNG-R-Inner-Flap</object-name>
+    <object-name>WNG-L-Inner-Flap</object-name>
+    <object-name>WNG-R-Outer-Flap</object-name>
+    <object-name>WNG-L-Outer-Flap</object-name>
+    <object-name>FUS-LO-Bomb-Door</object-name>
+
+    <object-name>FUS-RO-Bomb-Door</object-name>
+    <object-name>UC-RF-Door.002</object-name>
+    <object-name>UC-RF-Door.001</object-name>
+	<object-name>FUS-Hatch-Outside</object-name>
+    
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+	</animation>
+	
+	<!-- Pilot -->
+   <animation>
+        <type>material</type>
+        <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+        <property-base>sim/model/livery</property-base>
+        <texture-prop>texture-pilot</texture-prop>
+        <texture>fighter_pilot.png</texture>
+    </animation>
+  
+  <!-- Bump Map Effect -->
+ <effect>
+    <inherits-from>Aircraft/CanberraBI8/Models/Effects/eec_bumpspec</inherits-from>
+    <object-name>Low-Rez-Body</object-name>
+    <object-name>FUS-Hull</object-name>
+    <object-name>CP-R-Frame-Inside</object-name>
+    <object-name>CP-F-Canopy-Frame</object-name>
+    <object-name>WNG-L</object-name>
+    <object-name>WNG-R</object-name>
+    <object-name>WNG-R-Aileron</object-name>
+    <object-name>WNG-L-Aileron</object-name>
+    <object-name>WNG-F-Tip-Tank</object-name>
+    <object-name>WNG-R-Tip-Tank</object-name>
+    <object-name>ENG-L-Nacelle</object-name>
+    <object-name>ENG-R-Nacelle</object-name>
+    <object-name>EMP-Tail-Plane</object-name>
+    <object-name>EMP-L-Elev</object-name>
+    <object-name>EMP-R-Elev</object-name>
+    <object-name>EMP-Fin</object-name>
+    <object-name>EMP-Rudder</object-name>
+    <object-name>UC-L-Door</object-name>
+    <object-name>UC-LI-Door-Outside</object-name>
+    <object-name>UC-RI-Door-Outside</object-name>
+    <object-name>UC-R-Door</object-name>
+    <object-name>WNG-R-Inner-Flap</object-name>
+    <object-name>WNG-L-Inner-Flap</object-name>
+    <object-name>WNG-R-Outer-Flap</object-name>
+    <object-name>WNG-L-Outer-Flap</object-name>
+    <object-name>FUS-LO-Bomb-Door</object-name>
+    <object-name>FUS-RO-Bomb-Door</object-name>
+    <object-name>UC-RF-Door.002</object-name>
+    <object-name>UC-RF-Door.001</object-name>
+	<object-name>FUS-Hatch-Outside</object-name>
+ </effect>
+
+  
+ 
+
+  
+  <!-- Transparent Surfaces for Rembrandt rendering -->
+   <effect>
+       <inherits-from>Effects/model-transparent</inherits-from>
+       <object-name>hatch</object-name>
+    <object-name>main</object-name>
+<object-name>Low-Rez-Glass</object-name>
+<object-name>CP-R-Glass</object-name>
+<object-name>wCP-F-Glass</object-name>
+<object-name>CP-F-Glass</object-name>
+<object-name>FUS-Windows</object-name>
+<object-name>WNG-R-Lens</object-name>
+<object-name>WNG-L-Lens</object-name>
+<object-name>hud</object-name>
+   </effect>
+   
+  <animation>
+    <type>shader</type>
+    <shader>chrome</shader>
+    <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+     <object-name>hatch</object-name>
+    <object-name>main</object-name>
+<object-name>Low-Rez-Glass</object-name>
+<object-name>CP-R-Glass</object-name>
+<object-name>wCP-F-Glass</object-name>
+<object-name>CP-F-Glass</object-name>
+<object-name>FUS-Windows</object-name>
+<object-name>WNG-R-Lens</object-name>
+<object-name>WNG-L-Lens</object-name>
+  </animation>
+
+
+   <!-- Solid Surfaces for Rembrandt rendering -->
+   <animation>
+    
+   <object-name>FUS-Top</object-name>
+		<object-name>CPT-Canopy-R-Surround</object-name>
+		<object-name>CPT-Canopy-Hoop</object-name>
+		<object-name>WING-L-Aileron-Top</object-name>
+		<object-name>WING-L-Flap-Top</object-name>
+		<object-name>WING-L-Slat-Top</object-name>
+		<object-name>WING-R-Flap-Top</object-name>
+		<object-name>WING-R-Aileron-Top</object-name>
+		<object-name>WING-R-Slat-Top</object-name>
+		<object-name>FUS-Jets</object-name>
+		<object-name>FUS-Bottom</object-name>
+		<object-name>WING-L-Slat-Bottom</object-name>
+		<object-name>WING-L-Aileron-Bottom</object-name>
+		<object-name>WING-L-Flap-Bottom</object-name>
+		<object-name>WING-R-Flap-Bottom</object-name>
+		<object-name>WING-R-Aileron-Bottom</object-name>
+		<object-name>WING-R-Slat-Bottom</object-name>
+        <object-name>UC-L-Door-OS</object-name>
+		<object-name>UC-R-Door-OS</object-name>
+		<object-name>UC-F-Door-OS</object-name>
+		<object-name>FUS-RProbe</object-name>
+		<object-name>FUS-LProbe</object-name>
+		<object-name>FUS-WA-Bottom-WWells</object-name>
+		<object-name>FUS-WA-Bottom-Intake</object-name>
+		<object-name>CPT-Canopy-F-Surround</object-name>
+		<object-name>WING-Caps</object-name>
+		<object-name>FUS-Ant</object-name>
+		<object-name>FUS-LProbe</object-name>
+		<object-name>FUS-RProbe</object-name>
+		<object-name>UC-F-F-Strut</object-name>
+		<object-name>UC-F-Upper-Leg</object-name>
+		<object-name>UC-F-Lower-LegT</object-name>
+		<object-name>UC-F-Lower-LegB</object-name>
+		<object-name>UC-F-Tyre</object-name>
+		<object-name>UC-F-Hub</object-name>
+		<object-name>UC-L-Upper-Leg</object-name>
+		<object-name>UC-L-Strut</object-name>
+		<object-name>UC-L-Arm</object-name>
+		<object-name>UC-L-Lower-Leg</object-name>
+		<object-name>UC-L-Hub</object-name>
+		<object-name>UC-L-Tyre</object-name>
+		<object-name>UC-R-Hub</object-name>
+		<object-name>UC-R-Tyre</object-name>
+		<object-name>UC-R-Arm</object-name>
+		<object-name>UC-R-Lower-Leg</object-name>
+		<object-name>UC-R-Upper-Leg</object-name>
+		 <object-name>hudframe</object-name>
+		
+    </animation>
+
+
+<!-- ** Control Surfaces ** -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>WNG-L-Aileron</object-name>
+	<property>surface-positions/left-aileron-pos-norm</property>
+	<factor>-25</factor>
+	<axis>
+		<x1-m>10.143</x1-m> <x2-m>9.315</x2-m>
+		<y1-m>-5.7</y1-m>   <y2-m>-9.134</y2-m>
+		<z1-m>0.502</z1-m>  <z2-m>0.881</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>WNG-R-Aileron</object-name>
+	<property>surface-positions/right-aileron-pos-norm</property>
+	<factor>25</factor>
+	<axis>
+		<x1-m>10.143</x1-m> <x2-m>9.315</x2-m>
+		<y1-m>5.7</y1-m>    <y2-m>9.134</y2-m>
+		<z1-m>0.502</z1-m>  <z2-m>0.881</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>WNG-L-Outer-Flap</object-name>
+	<property>surface-positions/left-flap-pos-norm</property>
+	<factor>45</factor>
+	<axis>
+		<x1-m>10.143</x1-m> <x2-m>11.067</x2-m>
+		<y1-m>-5.7</y1-m>   <y2-m>-3.542</y2-m>
+		<z1-m>0.396</z1-m>  <z2-m>0.15</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>WNG-L-Inner-Flap</object-name>
+	<property>surface-positions/left-flap-pos-norm</property>
+	<factor>45</factor>
+	<axis>
+		<x1-m>11.122</x1-m> <x2-m>11.129</x2-m>
+		<y1-m>-2.646</y1-m> <y2-m>-1</y2-m>
+		<z1-m>0.098</z1-m>  <z2-m>0.012</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>WNG-R-Inner-Flap</object-name>
+	<property>surface-positions/right-flap-pos-norm</property>
+	<factor>-45</factor>
+	<axis>
+		<x1-m>11.122</x1-m> <x2-m>11.129</x2-m>
+		<y1-m>2.646</y1-m>  <y2-m>1</y2-m>
+		<z1-m>0.098</z1-m>  <z2-m>0.012</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>WNG-R-Outer-Flap</object-name>
+	<property>surface-positions/right-flap-pos-norm</property>
+	<factor>-45</factor>
+	<axis>
+		<x1-m>10.143</x1-m> <x2-m>11.067</x2-m>
+		<y1-m>5.7</y1-m>    <y2-m>3.542</y2-m>
+		<z1-m>0.396</z1-m>  <z2-m>0.15</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>EMP-L-Elev</object-name>
+	<property>surface-positions/left-elevator-pos-norm</property>
+	<factor>25</factor>
+	<axis>
+		<x1-m>18.67</x1-m> <x2-m>18.74</x2-m>
+		<y1-m>-3.79</y1-m> <y2-m>-0.56</y2-m>
+		<z1-m>1.40</z1-m>  <z2-m>0.87</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>EMP-R-Elev</object-name>
+	<property>surface-positions/right-elevator-pos-norm</property>
+	<factor>-25</factor>
+	<axis>
+		<x1-m>18.67</x1-m> <x2-m>18.74</x2-m>
+		<y1-m>3.79</y1-m> <y2-m>0.56</y2-m>
+		<z1-m>1.40</z1-m>  <z2-m>0.87</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>EMP-Rudder</object-name>
+	<property>surface-positions/rudder-pos-norm</property>
+	<factor>-25</factor>
+	<axis>
+		<x1-m>17.97</x1-m> <x2-m>17.96</x2-m>
+		<y1-m>0</y1-m>     <y2-m>0</y2-m>
+		<z1-m>1.38</z1-m>  <z2-m>2.98</z2-m>
+	</axis>
+</animation>
+
+<!--
+<animation>
+	<type>translate</type>
+	<object-name>WNG- -Spoiler</object-name>
+	<property>surface-positions/-spoiler-pos-norm</property>
+	<factor>0.18</factor>
+	<axis>
+		<y></y>
+		<z></z>
+	</axis>
+</animation>
+-->
+
+<animation>
+	<type>translate</type>
+	<object-name>WNG-UL-Spoiler</object-name>
+	<property>surface-positions/left-spoiler-pos-norm</property>
+	<factor>0.18</factor>
+	<axis>
+		<x>0.017</x>
+		<y>-0.033</y>
+		<z>0.191</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<object-name>WNG-UR-Spoiler</object-name>
+	<property>surface-positions/right-spoiler-pos-norm</property>
+	<factor>0.18</factor>
+	<axis>
+		<x>0.017</x>
+		<y>0.033</y>
+		<z>0.191</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<object-name>WNG-LL-Spoiler</object-name>
+	<property>surface-positions/left-spoiler-pos-norm</property>
+	<factor>0.18</factor>
+	<axis>
+		<x>-0.024</x>
+		<y>0.033</y>
+		<z>-0.191</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<object-name>WNG-LR-Spoiler</object-name>
+	<property>surface-positions/right-spoiler-pos-norm</property>
+	<factor>0.18</factor>
+	<axis>
+		<x>-0.024</x>
+		<y>-0.033</y>
+		<z>-0.191</z>
+	</axis>
+</animation>
+
+<!-- ** Misc Body Parts ** -->
+
+<!-- Canopy -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>CP-Canopy</object-name>
+	<property>controls/canopy/canopy-pos-norm</property>
+	<interpolation>
+		<entry> <ind>0</ind>    <dep>0</dep>  </entry>
+		<entry> <ind>0.01</ind> <dep>2</dep>  </entry>
+		<entry> <ind>0.05</ind> <dep>1</dep>  </entry>
+		<entry> <ind>0.3</ind>  <dep>1</dep>  </entry>
+		<entry> <ind>1</ind>    <dep>40</dep> </entry>
+	</interpolation>
+	<center>
+		<x-m>4.93</x-m>
+		<z-m>1.44</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
+<animation>
+	<!-- This one is seperate, because it has been sorted for layering -->
+	<type>rotate</type>
+	<object-name>CP-R-Glass</object-name>
+	<property>controls/canopy/canopy-pos-norm</property>
+	<interpolation>
+		<entry> <ind>0</ind>    <dep>0</dep>  </entry>
+		<entry> <ind>0.01</ind> <dep>2</dep>  </entry>
+		<entry> <ind>0.05</ind> <dep>1</dep>  </entry>
+		<entry> <ind>0.3</ind>  <dep>1</dep>  </entry>
+		<entry> <ind>1</ind>    <dep>40</dep> </entry>
+	</interpolation>
+	<center>
+		<x-m>4.93</x-m>
+		<z-m>1.44</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
+<!-- Crew entry hatch -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>FUS-Hatch</object-name>
+	<property>controls/hatch/hatch-pos-norm</property>
+	<factor>100</factor>
+	<axis>
+		<x1-m>1.992</x1-m> <x2-m>2.457</x2-m>
+		<y1-m>0.743</y1-m> <y2-m>0.822</y2-m>
+		<z1-m>0.361</z1-m> <z2-m>0.368</z2-m>
+	</axis>
+</animation>
+
+<!-- Bomb bay doors -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>FUS-L-Bomb-Door</object-name>
+	<property>controls/bb-doors/left-bb-door-pos-norm</property>
+	<factor>60</factor>
+	<center>
+		<y-m>-0.37</y-m>
+		<z-m>-0.18</z-m>
+	</center>
+	<axis>
+		<x>-1</x>
+	</axis>
+	<!--axis>
+		<x1-m>11.999</x1-m> <x2-m>5.299</x2-m>
+		<y1-m>-0.397</y1-m>  <y2-m>-0.427</y2-m>
+		<z1-m>-0.293</z1-m> <z2-m>-0.382</z2-m>
+	</axis-->
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>FUS-R-Bomb-Door</object-name>
+	<property>controls/bb-doors/right-bb-door-pos-norm</property>
+	<factor>60</factor>
+	<center>
+		<y-m>0.37</y-m>
+		<z-m>-0.18</z-m>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+	<!--axis>
+		<x1-m>11.999</x1-m> <x2-m>5.299</x2-m>
+		<y1-m>0.397</y1-m>  <y2-m>0.427</y2-m>
+		<z1-m>-0.293</z1-m> <z2-m>-0.382</z2-m>
+	</axis-->
+</animation>
+
+<!-- *** Misc *** -->
+
+
+
+<!-- Bomb Drop -->
+
+<animation>
+	<type>select</type>
+	<object-name>RedBeard</object-name>
+	<condition>
+		<not>
+			<property>/ai/submodels/red-beard-released</property>
+		</not>
+	</condition>
+</animation>
+
+<!-- ** Landing Gear ** -->
+
+<animation>
+	<type>select</type>
+	<object-name>Low-Rez-Gear</object-name>
+	<property>/controls/gear/gear-down</property>
+</animation>
+
+<!-- Nose gear Rolling -->
+
+<animation>
+	<type>spin</type>
+	<object-name>UC-Nose-Roll</object-name>
+	<property>gear/gear[0]/rollspeed-ms</property>
+	<!-- 0.68m * pi * 2 ?? -->
+	<!--factor>2.136283</factor-->
+	<!--factor>4.272566</factor-->
+	<factor>28.086166</factor>
+	<center>
+		<x-m>4.34</x-m>
+		<z-m>-0.29</z-m>
+	</center>
+	<axis>
+		<y>-1</y>
+	</axis>
+</animation>
+
+<!-- Nose Gear Compression -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/compression-norm</property>
+	<object-name>UC-Nose-Compress</object-name>
+	<factor>45</factor>
+	<center>
+		<x-m>4.2</x-m>
+		<z-m>-0.58</z-m>
+	</center>
+	<axis>
+		<y>-1</y>
+	</axis>
+</animation>
+
+<!-- Nose Gear Steering -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/steering-norm</property>
+	<object-name>UC-Nose-Steer</object-name>
+	<factor>60</factor>
+	<center>
+		<z-m>-0.355</z-m>
+	</center>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<!-- Nose Gear Retraction -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/position-norm</property>
+	<object-name>UC-Nose-Link</object-name>
+	<axis>
+		<y>1</y>
+	</axis>
+	<center>
+		<x-m>3.825</x-m>
+		<z-m>-0.247</z-m>
+	</center>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.166</ind> <dep>-23.3</dep> </entry>
+		<entry> <ind>0.333</ind> <dep>-42.6</dep> </entry>
+		<entry> <ind>0.499</ind> <dep>-58.6</dep> </entry>
+		<entry> <ind>0.666</ind> <dep>-67.4</dep> </entry>
+		<entry> <ind>0.832</ind> <dep>-70.9</dep> </entry>
+		<entry> <ind>1</ind> <dep>-55</dep> </entry>
+	</interpolation>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/position-norm</property>
+	<object-name>UC-Nose-Retract</object-name>
+	<axis>
+		<y>1</y>
+	</axis>
+	<center>
+		<x-m>3.645</x-m>
+		<z-m>-0.46</z-m>
+	</center>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.166</ind> <dep>15</dep> </entry>
+		<entry> <ind>0.333</ind> <dep>30</dep> </entry>
+		<entry> <ind>0.499</ind> <dep>45</dep> </entry>
+		<entry> <ind>0.666</ind> <dep>60</dep> </entry>
+		<entry> <ind>0.832</ind> <dep>75</dep> </entry>
+		<entry> <ind>1</ind> <dep>90</dep> </entry>
+	</interpolation>
+</animation>
+
+<animation>
+	<type>shader</type>
+	<shader>chrome</shader>
+	<texture>chrome2.rgb</texture>
+	<object-name>UC-Nose-Piston</object-name>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/position-norm</property>
+	<object-name>UC-Nose-Piston</object-name>
+	<axis>
+		<y>1</y>
+	</axis>
+	<center>
+		<x-m>3.969</x-m>
+		<z-m>-0.005</z-m>
+	</center>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.166</ind> <dep>-0.7</dep> </entry>
+		<entry> <ind>0.333</ind> <dep>-0.1</dep> </entry>
+		<entry> <ind>0.499</ind> <dep>0.3</dep> </entry>
+		<entry> <ind>0.666</ind> <dep>0.7</dep> </entry>
+		<entry> <ind>0.832</ind> <dep>0.8</dep> </entry>
+		<entry> <ind>1</ind> <dep>0.5</dep> </entry>
+	</interpolation>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/position-norm</property>
+	<object-name>UC-Nose-DL-Rotate</object-name>
+	<axis>
+		<y>1</y>
+	</axis>
+	<center>
+		<x-m>4.751</x-m>
+		<z-m>0.115</z-m>
+	</center>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.166</ind> <dep>-4.1</dep> </entry>
+		<entry> <ind>0.333</ind> <dep>-8.1</dep> </entry>
+		<entry> <ind>0.499</ind> <dep>-12.8</dep> </entry>
+		<entry> <ind>0.666</ind> <dep>-17.8</dep> </entry>
+		<entry> <ind>0.832</ind> <dep>-24.2</dep> </entry>
+		<entry> <ind>1</ind> <dep>-37.6</dep> </entry>
+	</interpolation>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/position-norm</property>
+	<object-name>UC-Nose-Retractor</object-name>
+	<axis>
+		<y>1</y>
+	</axis>
+	<center>
+		<x-m>4.762</x-m>
+		<z-m>-0.269</z-m>
+	</center>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.166</ind> <dep>-2.8</dep> </entry>
+		<entry> <ind>0.333</ind> <dep>-7.4</dep> </entry>
+		<entry> <ind>0.499</ind> <dep>-12.0</dep> </entry>
+		<entry> <ind>0.666</ind> <dep>-16.2</dep> </entry>
+		<entry> <ind>0.832</ind> <dep>-22.6</dep> </entry>
+		<entry> <ind>1</ind> <dep>-37.2</dep> </entry>
+	</interpolation>
+</animation>
+
+<!-- Nose Gear Doors -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/position-norm</property>
+	<object-name>UC-LF-Door</object-name>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.3</ind> <dep>125</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>4.82</x1-m>  <x2-m>3.51</x2-m>
+		<y1-m>-0.42</y1-m> <y2-m>-0.4</y2-m>
+		<z1-m>-0.65</z1-m> <z2-m>-0.65</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[0]/position-norm</property>
+	<object-name>UC-RF-Door</object-name>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.3</ind> <dep>-125</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>4.82</x1-m>  <x2-m>3.51</x2-m>
+		<y1-m>0.42</y1-m>  <y2-m>0.4</y2-m>
+		<z1-m>-0.65</z1-m> <z2-m>-0.65</z2-m>
+	</axis>
+</animation>
+
+<!-- Left Gear Roll -->
+
+<animation>
+	<type>spin</type>
+	<property>gear/gear[1]/rollspeed-ms</property>
+	<object-name>UC-Left-Roll</object-name>
+	<!-- 60 / (1.06m * pi) -->
+	<factor>-18.017541</factor>
+	<axis>
+		<x1-m>7.517</x1-m>  <x2-m>7.731</x2-m>
+		<y1-m>-1.686</y1-m> <y2-m>-1.609</y2-m>
+		<z1-m>-0.607</z1-m> <z2-m>1.547</z2-m>
+	</axis>
+</animation>
+
+<!-- Left Gear Compression -->
+
+<animation>
+	<type>shader</type>
+	<shader>chrome</shader>
+	<texture>chrome2.rgb</texture>
+	<object-name>UC-Left-Oleo</object-name>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<property>gear/gear[1]/compression-norm</property>
+	<object-name>UC-Left-Compress</object-name>
+	<factor>0.18</factor>
+	<axis>
+		<y>-1</y>
+		<!--x1-m>8.13</x1-m>  <x2-m>7.79</x2-m>
+		<y1-m>-2.68</y1-m> <y2-m>-1.96</y2-m>
+		<z1-m>0.23</z1-m>  <z2-m>0.24</z2-m-->
+	</axis>
+</animation>
+
+<!-- Left Gear Retraction -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[1]/position-norm</property>
+	<object-name>UC-Left-Retract</object-name>
+	<interpolation>
+		<entry> <ind>0.05</ind> <dep>0</dep> </entry>
+		<entry> <ind>1</ind> <dep>-90.9</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>7.59</x1-m>  <x2-m>8.64</x2-m>
+		<y1-m>-2.83</y1-m> <y2-m>-2.59</y2-m>
+		<z1-m>0.09</z1-m>  <z2-m>0.22</z2-m>
+	</axis>
+</animation>
+
+<!-- Left Gear Doors -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[1]/position-norm</property>
+	<object-name>UC-LI-Door</object-name>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.25</ind> <dep>-90</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>8.00</x1-m>  <x2-m>7.34</x2-m>
+		<y1-m>-1.00</y1-m> <y2-m>-1.00</y2-m>
+		<z1-m>0.02</z1-m>  <z2-m>0.09</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[1]/position-norm</property>
+	<object-name>UC-LO-Door</object-name>
+	<interpolation>
+		<entry> <ind>0.05</ind> <dep>0</dep> </entry>
+		<entry> <ind>1</ind> <dep>130</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>8.385</x1-m>  <x2-m>7.933</x2-m>
+		<y1-m>-2.910</y1-m> <y2-m>-2.919</y2-m>
+		<z1-m>-0.076</z1-m> <z2-m>-0.067</z2-m>
+	</axis>
+</animation>
+
+<!-- Right Gear Roll -->
+
+<animation>
+	<type>spin</type>
+	<property>gear/gear[2]/rollspeed-ms</property>
+	<object-name>UC-Right-Roll</object-name>
+	<!-- 60 / (1.06m * pi) -->
+	<factor>18.017541</factor>
+	<axis>
+		<x1-m>7.507</x1-m>  <x2-m>7.731</x2-m>
+		<y1-m>1.686</y1-m>  <y2-m>1.609</y2-m>
+		<z1-m>-0.607</z1-m> <z2-m>1.546</z2-m>
+	</axis>
+</animation>
+
+<!-- Right Gear Compression -->
+
+<animation>
+	<type>shader</type>
+	<shader>chrome</shader>
+	<texture>chrome2.rgb</texture>
+	<object-name>UC-Right-Oleo</object-name>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<property>gear/gear[2]/compression-norm</property>
+	<object-name>UC-Right-Compress</object-name>
+	<factor>0.18</factor>
+	<axis>
+		<y>1</y>
+		<!--x1-m>8.13</x1-m>  <x2-m>7.79</x2-m>
+		<y1-m>-2.68</y1-m> <y2-m>1.96</y2-m>
+		<z1-m>0.23</z1-m>  <z2-m>0.24</z2-m-->
+	</axis>
+</animation>
+
+<!-- Right Gear Retraction -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[2]/position-norm</property>
+	<object-name>UC-Right-Retract</object-name>
+	<interpolation>
+		<entry> <ind>0.05</ind> <dep>0</dep> </entry>
+		<entry> <ind>1</ind> <dep>90.9</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>7.59</x1-m>  <x2-m>8.64</x2-m>
+		<y1-m>2.83</y1-m>  <y2-m>2.59</y2-m>
+		<z1-m>0.09</z1-m>  <z2-m>0.22</z2-m>
+	</axis>
+</animation>
+
+<!-- Right Gear Doors -->
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[2]/position-norm</property>
+	<object-name>UC-RI-Door</object-name>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>0.25</ind> <dep>90</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>8.00</x1-m>  <x2-m>7.34</x2-m>
+		<y1-m>1.00</y1-m>  <y2-m>1.00</y2-m>
+		<z1-m>0.02</z1-m>  <z2-m>0.09</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<property>gear/gear[2]/position-norm</property>
+	<object-name>UC-RO-Door</object-name>
+	<interpolation>
+		<entry> <ind>0.05</ind> <dep>0</dep> </entry>
+		<entry> <ind>1</ind> <dep>-130</dep> </entry>
+	</interpolation>
+	<axis>
+		<x1-m>8.385</x1-m>  <x2-m>7.933</x2-m>
+		<y1-m>2.910</y1-m>  <y2-m>2.919</y2-m>
+		<z1-m>-0.076</z1-m> <z2-m>-0.067</z2-m>
+	</axis>
+</animation>
+
+
+
+
+
+
+<!-- FGUK added effects  -->
+
+<!-- LIGHTS -->
+<model>
+    <path>Aircraft/CanberraBI8/Models/lights/beacon.xml</path>
+    <offsets>
+      <x-m>13.15</x-m>
+      <y-m> 0</y-m>
+      <z-m> 1.35</z-m>
+
+
+          </offsets>
+  </model> 
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/lights/beacon.xml</path>
+    <offsets>
+       <x-m>13.7</x-m>
+      <y-m> 0</y-m>
+      <z-m> -0.6</z-m>
+
+    </offsets>
+  </model>
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/lights/GreenLight.xml</path>
+    <offsets>
+      <x-m> 19.5</x-m>
+      <y-m> 0</y-m>
+      <z-m> 1.3</z-m>
+
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/RedLight.xml</path>
+    <offsets>
+      <x-m>  7.75 </x-m>
+      <y-m> -9.51  </y-m>
+      <z-m> 1.0</z-m>
+
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/GreenLight.xml</path>
+    <offsets>
+       <x-m>  7.75 </x-m>
+      <y-m> 9.51  </y-m>
+      <z-m> 1.0</z-m>
+
+
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/StrobeWhite.xml</path>
+    <offsets>
+      <x-m>  7.6 </x-m>
+      <y-m> -9.3  </y-m>
+      <z-m> 1.0</z-m>
+
+
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/StrobeWhite.xml</path>
+    <offsets>
+       <x-m>  7.6 </x-m>
+      <y-m> 9.3  </y-m>
+      <z-m> 1.0</z-m>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Effects/smoke/smokeL.xml</path>
+    <offsets>
+      <x-m>  11.7 </x-m>
+      <y-m>  -3.0</y-m>
+      <z-m> -0.2</z-m>
+
+    </offsets>
+  </model>
+
+  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Effects/smoke/smokeR.xml</path>
+    <offsets>
+      <x-m>  11.7</x-m>
+      <y-m>  3.0</y-m>
+      <z-m> -0.2</z-m>
+    </offsets>
+  </model>
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Effects/trail/trailL.xml</path>
+    <offsets>
+       <x-m>  11.7 </x-m>
+      <y-m>  -3.0</y-m>
+      <z-m> 0</z-m>
+    </offsets>
+  </model>
+
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/Effects/trail/trailR.xml</path>
+    <offsets>
+     <x-m>  11.7</x-m>
+      <y-m>  3.0</y-m>
+      <z-m> 0</z-m>
+    </offsets>
+  </model>
+
+
+<model>
+    <path>Aircraft/CanberraBI8/Models/Effects/tiptrail/tiptrail.xml</path>
+    <offsets>
+       <x-m>  7.6 </x-m>
+      <y-m> 9.3  </y-m>
+      <z-m> 1.0</z-m>
+    </offsets>
+  </model>
+
+   <model>
+    <path>Aircraft/CanberraBI8/Models/Effects/tiptrail/tiptrail.xml</path>
+    <offsets>
+       <x-m>  7.6 </x-m>
+      <y-m> -9.3  </y-m>
+      <z-m> 1.0</z-m>
+    </offsets>
+  </model>
+
+
+<!-- Interior -->
+<model>
+    <path>Aircraft/CanberraBI8/Models/Interior/interior.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+  
+   <!-- aircraft wash modeled in the lines below -->
+  <model>
+    <name>aircraft_wash_l</name>
+    <path>Aircraft/CanberraBI8/Models/wash/aircraft_wash.xml</path>
+    <condition>
+    <equals>
+    <property>controls/state/low_level</property>
+    <value>1</value>
+    </equals>
+    </condition>
+    <offsets>
+      <x-m> 25.00 </x-m>
+      <y-m>  4.50 </y-m>
+      <z-m>  0.00 </z-m>
+      <pitch-deg> 0 </pitch-deg>
+    </offsets>
+  </model>
+ 
+  <model>
+    <name>aircraft_wash_r</name>
+    <path>Aircraft/CanberraBI8/Models/wash/aircraft_wash.xml</path>
+    <condition>
+      <equals>
+        <property>controls/state/low_level</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m> 25.00 </x-m>
+      <y-m> -4.50 </y-m>
+      <z-m>  0.00 </z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+  
+  <animation>
+    <type>translate</type>
+    <object-name>aircraft_wash_l</object-name>
+    <object-name>aircraft_wash_r</object-name>
+    <property>position/altitude-agl-ft</property>
+    <condition>
+      <equals>
+        <property>controls/state/low_level</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <interpolation>
+      <entry><ind>   0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 300 </ind><dep> -90 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  1 </z>
+    </axis>
+  </animation>
+
+
+	
+	 <!-- Taxi light cone -->  
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/light-cone.xml</path>
+    <name>NoseGearLandinglightL</name>     
+    <offsets>
+      <x-m>  7.6 </x-m>
+      <y-m> -9.1  </y-m>
+      <z-m> 1.0</z-m>
+      <pitch-deg>  -10 </pitch-deg>
+      <heading-deg>0 </heading-deg>     
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/CanberraBI8/Models/lights/light-cone.xml</path>
+    <name>NoseGearLandinglightR</name>     
+    <offsets>
+     <x-m>  7.6 </x-m>
+      <y-m> 9.1  </y-m>
+      <z-m> 1.0</z-m>
+      <pitch-deg>  -10 </pitch-deg>
+      <heading-deg> 0 </heading-deg>     
+    </offsets>
+  </model>  
+  
+ 
+
+<!-- pilot -->
+<model>
+    <path>Aircraft/CanberraBI8/Models/pilot/Pilot.xml</path>
+    <offsets>
+      <x-m> 3.85 </x-m>
+      <y-m> -0.22 </y-m>
+      <z-m> 0.9 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- pilot invisible from internally -->
+
+    <animation>
+        <type>select</type>
+        <object-name>pilot</object-name>
+    <condition>
+    <not>
+      <property>sim/current-view/internal</property>
+    </not>
+    </condition>
+    </animation>	
+	
+	<model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour.xml</path>
+		<offsets>
+			<x-m>7.5</x-m>
+			<y-m>-1.0</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>-25</heading-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour.xml</path>
+		<offsets>
+			<x-m>7.5</x-m>
+			<y-m>1.0</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>25</heading-deg>
+		</offsets>
+	</model>
+ 
+ <model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour2.xml</path>
+		<offsets>
+			<x-m>8.5</x-m>
+			<y-m>-5</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>45</heading-deg>
+		</offsets>
+	</model>
+	
+	<model>
+		<path>Aircraft/CanberraBI8/Models/Effects/Vapour/Vapour2.xml</path>
+		<offsets>
+			<x-m>8.5</x-m>
+			<y-m>5</y-m>
+			<z-m>0.9</z-m>
+			<roll-deg>0</roll-deg>
+			<pitch-deg>0</pitch-deg>
+			<heading-deg>-45</heading-deg>
+		</offsets>
+	</model>
+  
+
+</PropertyList>

@@ -1,231 +1,173 @@
-<?xml version="1.0"?>
-
 <PropertyList>
 
   <fx>
 
-    <engine>
-      <name>engine</name>
-      <path>Sounds/jet.wav</path>
+  
+  <engine>
+      <name>turbine interior</name>
       <mode>looped</mode>
+      <path>Aircraft/CanberraBI8/Sounds/cockpit.wav</path>
       <condition>
-        <property>/engines/engine[0]/running</property>
+        <and>
+          <property>/engines/engine/running</property>
+          <property>/sim/current-view/internal</property>
+        </and>
       </condition>
+      <orientation>
+        <x>   -0.35 </x>
+        <y>   1.1 </y>
+        <z> 4.8 </z>
+        <inner-cone> 180.0 </inner-cone>
+        <outer-cone> 360.0 </outer-cone>
+        <outer-gain>   0.2 </outer-gain>
+      </orientation>
       <volume>
-        <property>/engines/engine[0]/prop-thrust</property>
-        <factor type="double">0.00013</factor>
+        <property>engines/engine/n2</property>
+        <factor>0.01</factor>
+        <min>1.0</min>
+        <max>6.85</max>
       </volume>
       <pitch>
-        <property>/engines/engine[0]/n1</property>
-        <factor>0.2</factor>
+        <property>engines/engine/n2</property>
+        <factor>0.01</factor>
+        <min>0</min>
+        <max>0.9</max>
       </pitch>
-    </engine>
-
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>  
+<!---
     <engine>
-      <name>whine</name>
-      <path>Sounds/turbojet_fan.wav</path>
+      <name>thrust lowfreq exterior</name>
+      <path>Aircraft/CanberraBI8/Sounds/engine-lowfreq.wav</path>
       <mode>looped</mode>
       <condition>
-        <property>/engines/engine[0]/running</property>
+        <property>/engines/engine/running</property>
+        <not>
+          <property>/sim/current-view/internal</property>
+        </not>
       </condition>
+      <property>engines/engine/thrust-lbs</property>
       <volume>
-        <property>/engines/engine[0]/n2</property>
-        <factor type="double">0.0025</factor>
+        <property>engines/engine/thrust-lbs</property>
+        <factor>0.008</factor>       
+        <min>10</min>
+        <max>39.9</max>
       </volume>
-      <pitch>
-        <property>/engines/engine[0]/n2</property>
-        <factor>0.02</factor>
-        <offset>-0.1</offset>
-      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
     </engine>
-
+	-->
     <engine>
-      <name>engine</name>
-      <path>Sounds/jet.wav</path>
+      <name>thrust lowfreq interior</name>
+      <path>Aircraft/CanberraBI8/Sounds/engine-lowfreq.wav</path>
       <mode>looped</mode>
       <condition>
-        <property>/engines/engine[1]/running</property>
+        <and>
+          <property>/engines/engine/running</property>
+          <property>/sim/current-view/internal</property>
+        </and>
       </condition>
+      <property>engines/engine/thrust-lbs</property>
       <volume>
-        <property>/engines/engine[1]/prop-thrust</property>
-        <factor type="double">0.00013</factor>
-      </volume>
-      <pitch>
-        <property>/engines/engine[1]/n1</property>
-        <factor>0.2</factor>
-      </pitch>
+        <property>engines/engine/thrust-lbs</property>
+        <factor>0.00003</factor>         
+        <min>0</min>
+        <max>2.9</max>
+      </volume>		
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
     </engine>
-
-    <engine>
-      <name>whine</name>
-      <path>Sounds/turbojet_fan.wav</path>
+	
+    
+	
+    <wind>
+      <name>wind</name>
       <mode>looped</mode>
+      <path>Sounds/wind.wav</path>
       <condition>
-        <property>/engines/engine[1]/running</property>
+        <not> 
+          <property>/sim/current-view/internal</property>
+        </not>
       </condition>
+      <property>/velocities/airspeed-kt</property>
       <volume>
-        <property>/engines/engine[1]/n2</property>
-        <factor type="double">0.0025</factor>
+        <property>/position/altitude-ft</property>
+        <factor>-0.000015</factor>
+        <offset>1.0</offset>
+        <min>0.1</min>
+        <max>0.7</max>
+      </volume>
+      <volume>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.015</factor>
+        <min>0.03</min>
+        <max>0.55</max>
       </volume>
       <pitch>
-        <property>/engines/engine[1]/n2</property>
-        <factor>0.02</factor>
-        <offset>-0.1</offset>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.01</factor>
+        <offset>0.75</offset>
       </pitch>
-    </engine>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </wind>
 
     <rumble>
       <name>rumble</name>
       <mode>looped</mode>
       <path>Sounds/rumble.wav</path>
       <condition>
-        <property>/gear/gear[0]/wow</property>
+        <or>
+          <property>/gear/gear[0]/wow</property>
+          <property>/gear/gear[1]/wow</property>
+          <property>/gear/gear[2]/wow</property>
+        </or>
       </condition>
       <volume>
-        <property>/gear/gear[0]/rollspeed-ms</property>
-        <type>log</type>
-        <factor>0.12</factor>
+        <property>/velocities/airspeed-kt</property>
+        <factor>.0005</factor>
       </volume>
-      <pitch>
-        <property>/gear/gear[0]/rollspeed-ms</property>
-      </pitch>
-    </rumble>
-
-    <rumble>
-      <name>rumble</name>
-      <mode>looped</mode>
-      <path>Sounds/rumble.wav</path>
-      <condition>
-        <property>/gear/gear[1]/wow</property>
-      </condition>
-      <volume>
-        <property>/gear/gear[1]/rollspeed-ms</property>
-        <type>log</type>
-        <factor>0.12</factor>
-      </volume>
-    </rumble>
-
-    <rumble>
-      <name>rumble</name>
-      <mode>looped</mode>
-      <path>Sounds/rumble.wav</path>
-      <condition>
-        <property>/gear/gear[2]/wow</property>
-      </condition>
-      <volume>
-        <property>/gear/gear[2]/rollspeed-ms</property>
-        <type>log</type>
-        <factor>0.12</factor>
-      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
     </rumble>
 
     <gear>
       <name>gear</name>
       <mode>in-transit</mode>
-      <path>Sounds/gear.wav</path>
+      <path>Aircraft/CanberraBI8/Sounds/gear.wav</path>
       <property>/gear/gear[0]/position-norm</property>
       <pitch>
         <internal>dt_play</internal>
         <offset>1.0</offset>
         <factor>-0.001</factor>
       </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
     </gear>
 
     <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[0]/position-norm</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[0]/position-norm</property>
-          <value>1</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear</name>
-      <mode>in-transit</mode>
-      <path>Sounds/gear.wav</path>
-      <property>/gear/gear[1]/position-norm</property>
-      <pitch>
-        <internal>dt_play</internal>
-        <offset>1.0</offset>
-        <factor>-0.001</factor>
-      </pitch>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[1]/position-norm</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[1]/position-norm</property>
-          <value>1</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear</name>
-      <mode>in-transit</mode>
-      <path>Sounds/gear.wav</path>
-      <property>/gear/gear[2]/position-norm</property>
-      <pitch>
-        <internal>dt_play</internal>
-        <offset>1.0</offset>
-        <factor>-0.001</factor>
-      </pitch>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[2]/position-norm</property>
-          <value>0</value>
-        </equals>
-      </condition>
-    </gear>
-
-    <gear>
-      <name>gear-lock</name>
-      <path>Sounds/gear-lck.wav</path>
-      <condition>
-        <equals>
-          <property>/gear/gear[2]/position-norm</property>
-          <value>1</value>
-        </equals>
-      </condition>
+     <name>gear-lock</name>
+     <path>Sounds/gear-lck.wav</path>
+     <condition>
+      <equals>
+       <property>/gear/gear[0]/position-norm</property>
+       <value>0</value>
+      </equals>
+     </condition>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
     </gear>
 
     <squeal>
       <name>squeal</name>
       <path>Sounds/squeal.wav</path>
       <condition>
-        <property>/gear/gear[0]/wow</property>
+        <or>
+          <property>/gear/gear[0]/wow</property>
+          <property>/gear/gear[1]/wow</property>
+          <property>/gear/gear[2]/wow</property>
+        </or>
       </condition>
       <volume>
         <property>/velocities/speed-down-fps</property>
@@ -245,155 +187,254 @@
         <factor>0.0025</factor>
         <offset>1.2</offset>
       </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
     </squeal>
-
-    <squeal>
-      <name>squeal</name>
-      <path>Sounds/squeal.wav</path>
-      <condition>
-        <property>/gear/gear[1]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/speed-down-fps</property>
-        <factor>0.05</factor>
-      </volume>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.01</factor>
-      </volume>
-      <volume>
-        <internal>dt_stop</internal>
-        <factor>0.05</factor>
-        <max>1.0</max>
-      </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.0025</factor>
-        <offset>1.2</offset>
-      </pitch>
-    </squeal>
-
-    <squeal>
-      <name>squeal</name>
-      <path>Sounds/squeal.wav</path>
-      <condition>
-        <property>/gear/gear[2]/wow</property>
-      </condition>
-      <volume>
-        <property>/velocities/speed-down-fps</property>
-        <factor>0.05</factor>
-      </volume>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.01</factor>
-      </volume>
-      <volume>
-        <internal>dt_stop</internal>
-        <factor>0.05</factor>
-        <max>1.0</max>
-      </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.0025</factor>
-        <offset>1.2</offset>
-      </pitch>
-    </squeal>
-
+ 
     <flap>
       <name>flaps</name>
       <mode>in-transit</mode>
       <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/left-flap-pos-norm</property>
+      <property>/surface-positions/flap-pos-norm</property>
       <volume>
-        <factor>0.15</factor>
-      </volume>
-    </flap>
-
-    <flap>
-      <name>flaps</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/right-flap-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </flap>
-
-    <spoiler>
-      <name>spoilers</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/left-lower-spoiler-pos-norm</property>
-      <volume>
-        <factor>0.15</factor>
-      </volume>
-    </spoiler>
-
-    <spoiler>
-      <name>spoilers</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/left-upper-spoiler-pos-norm</property>
-      <volume>
-        <factor>0.15</factor>
-      </volume>
-    </spoiler>
-
-    <spoiler>
-      <name>spoilers</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/right-lower-spoiler-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </spoiler>
-
-    <spoiler>
-      <name>spoilers</name>
-      <mode>in-transit</mode>
-      <path>Sounds/flaps.wav</path>
-      <property>/surface-positions/right-upper-spoiler-pos-norm</property>
-      <volume>
-        <factor>0.25</factor>
-      </volume>
-    </spoiler>
-
-    <wind>
-      <name>wind</name>
-      <mode>looped</mode>
-      <path>Sounds/wind.wav</path>
-      <property>/velocities/airspeed-kt</property>
-      <volume>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.002</factor>
-        <!--min>0.03</min-->
         <max>0.25</max>
       </volume>
-      <pitch>
-        <property>/velocities/airspeed-kt</property>
-        <factor>0.01</factor>
-        <offset>1.25</offset>
-      </pitch>
-    </wind>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </flap>
 
     <stall>
-      <name>stall</name>
-      <path>Sounds/stall.wav</path>
-      <property>/sim/alarms/stall-warning</property>
+   <name>stall</name>
+   <path>Aircraft/CanberraBI8/Sounds/stall.wav</path>
+   <property>/sim/alarms/stall-warning</property>
+   <volume>
+    <property>/velocities/airspeed-kt</property>
+    <min>30.0</min>
+   </volume>
+  </stall>
+
+<!-- flyby -->
+		<flyby>
+			<name>fly-by</name>
+			<mode>once</mode>
+			<path>Aircraft/CanberraBI8/Sounds/flyby2.wav</path>
+			<condition>
+			<and>
+	    <greater-than>
+	     	<property>/velocities/mach</property>
+	     	<value>0.3</value>
+	    </greater-than>
+				<equals>
+					<property>sim/current-view/view-number</property>
+					<value>6</value>
+				</equals>
+				</and>
+				<not>
+         	<property>/sim/current-view/internal</property>
+	 	<property>/engines/engine/out-of-fuel</property>
+     	</not>
+		</condition>
+			<volume>
+				<property>velocities/airspeed-kt</property>
+				<factor>0.001</factor>
+			</volume>
+			
+		</flyby>
+
+	<engine>
+      <name>engine-start-inside</name>
+      <mode>once</mode>
+      <path>Aircraft/CanberraBI8/Sounds/turbine_start_in.wav</path>
+      <condition>
+        <and>
+          <property>/controls/engines/engine[0]/starter</property>
+          <property>/sim/current-view/internal</property>
+        </and>
+      </condition>
       <volume>
-        <property>/velocities/airspeed-kt</property>
-        <min>90.0</min>
+        <property>engines/engine[0]/n2</property>
+        <factor> 0.01 </factor>
+        <min> 0.03 </min>
+        <max> 0.07 </max>
       </volume>
-    </stall>
+      <pitch>
+        <property>engines/engine[0]/n2</property>
+        <factor> 0.01 </factor>
+        <min> 0.0 </min>
+        <max> 0.9 </max>
+      </pitch>
+       <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+   </engine>
+   
+   <engine>
+      <name>engine-start-outside</name>
+      <mode>once</mode>
+      <path>Aircraft/CanberraBI8/Sounds/canberra-start.wav</path>
+      <condition>
+<and>
+ 
+<greater-than>  
+   <property>/engines/engine[0]/rpm</property>
+   <value>0.5</value>
+   
+  </greater-than>
+  <less-than>
+                <property>velocities/groundspeed-kt</property>
+                <value>1</value>
+            </less-than>
+  <not>
+   <property>/sim/current-view/internal</property>
+  </not>
+</and>
+</condition>
 
-<!-- no binding yet?
-    <click>
-      <name>click</name>
-      <path>Sounds/click.wav</path>
-    </click>
--->
+      <volume>
+        <property>engines/engine[0]/n2</property>
+        <factor> 0.09 </factor>
+        <min> 0.3 </min>
+        <max> 0.9 </max>
+      </volume>
+      <pitch>
+        <property>engines/engine[0]/n2</property>
+        <factor> 0.01 </factor>
+	<min> 0.0 </min>
+	<max> 0.9 </max>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+	
+	<engine>
+      <name>engine-start-outside1</name>
+      <mode>once</mode>
+      <path>Aircraft/CanberraBI8/Sounds/canberra-start.wav</path>
+      <condition>
+<and>
+ 
+<greater-than>  
+   <property>/engines/engine[1]/rpm</property>
+   <value>0.5</value>
+   
+  </greater-than>
+  <less-than>
+                <property>velocities/groundspeed-kt</property>
+                <value>1</value>
+            </less-than>
+  <not>
+   <property>/sim/current-view/internal</property>
+  </not>
+</and>
+</condition>
 
+      <volume>
+        <property>engines/engine[1]/n2</property>
+        <factor> 0.09 </factor>
+        <min> 0.3 </min>
+        <max> 0.9 </max>
+      </volume>
+      <pitch>
+        <property>engines/engine[1]/n2</property>
+        <factor> 0.01 </factor>
+	<min> 0.0 </min>
+	<max> 0.9 </max>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </engine>
+		
+		
+
+		 <engine>
+      <name>whine</name>
+      <path>Aircraft/CanberraBI8/Sounds/canberra-whine.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>/engines/engine[0]/running</property>
+		<not>
+        	<property>/sim/current-view/internal</property>
+		<property>/engines/engine/out-of-fuel</property>
+     	</not>
+      </condition>
+      <volume>
+        <property>/engines/engine[0]/n2</property>
+        <factor type="double">0.0025</factor>
+      </volume>
+      <pitch>
+        <property>/engines/engine[0]/n2</property>
+        <factor>0.02</factor>
+        <offset>-0.1</offset>
+      </pitch>
+    </engine>
+	
+	 <engine>
+      <name>whine1</name>
+      <path>Aircraft/CanberraBI8/Sounds/canberra-whine.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>/engines/engine[1]/running</property>
+		<not>
+        	<property>/sim/current-view/internal</property>
+		<property>/engines/engine/out-of-fuel</property>
+     	</not>
+      </condition>
+      <volume>
+        <property>/engines/engine[1]/n2</property>
+        <factor type="double">0.0025</factor>
+      </volume>
+      <pitch>
+        <property>/engines/engine[1]/n2</property>
+        <factor>0.02</factor>
+        <offset>-0.1</offset>
+      </pitch>
+    </engine>
+	
+	
+	<engine>
+      <name>engine</name>
+      <path>Aircraft/CanberraBI8/Sounds/jet-blast.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>engines/engine[0]/running</property>
+		<not>
+        	<property>/sim/current-view/internal</property>
+		<property>/engines/engine/out-of-fuel</property>
+     	</not>
+      </condition>
+      <volume>
+        <property>engines/engine[0]/prop-thrust</property>
+        <factor type="double">0.00013</factor>
+      </volume>
+       <pitch>
+        <property>engines/engine[0]/n1</property>
+        <factor>0.2</factor>
+      </pitch>
+    </engine>
+	
+	<engine>
+      <name>engine1</name>
+      <path>Aircraft/CanberraBI8/Sounds/jet-blast.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>engines/engine[1]/running</property>
+		<not>
+        	<property>/sim/current-view/internal</property>
+		<property>/engines/engine/out-of-fuel</property>
+     	</not>
+      </condition>
+      <volume>
+        <property>engines/engine[1]/prop-thrust</property>
+        <factor type="double">0.00013</factor>
+      </volume>
+       <pitch>
+        <property>engines/engine[0]/n1</property>
+        <factor>0.2</factor>
+      </pitch>
+    </engine>
+
+		
+		
   </fx>
-
+ 
 </PropertyList>
+

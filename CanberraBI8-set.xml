@@ -17,7 +17,7 @@ English Electric Canberra B(I)8 simulation config.
     <fuel-fraction>1.0</fuel-fraction>
 
     <description>English Electric Canberra B(I)8 (YASim FDM)</description>
-    
+    <status type="string">FGUK SE V1.6</status>
     <startup>
       <splash-texture>Aircraft/CanberraBI8/CanberraBI8-splash.rgb</splash-texture>
     </startup>
@@ -60,7 +60,7 @@ English Electric Canberra B(I)8 simulation config.
         <y-offset-m archive="y">-0.11</y-offset-m>
         <z-offset-m archive="y">0.55</z-offset-m>
         <pitch-offset-deg>-15</pitch-offset-deg>
-        <default-field-of-view-deg>55</default-field-of-view-deg>
+        <default-field-of-view-deg>85</default-field-of-view-deg>
       </config>
     </view>
 
@@ -87,6 +87,24 @@ English Electric Canberra B(I)8 simulation config.
         <target-z-offset-m archive="y" type="double">10.0</target-z-offset-m>
       </config>
     </view>
+	
+	 <view n="102">
+    <name>Pilot cam</name>
+        <internal archive="y">false</internal>
+        <config>
+		 <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+           <x-offset-m archive="y">-0.22</x-offset-m>
+        <y-offset-m archive="y">1.38</y-offset-m>
+        <z-offset-m archive="y">3.34</z-offset-m>
+          <pitch-offset-deg>0</pitch-offset-deg>
+		  <heading-offset-deg>180</heading-offset-deg>
+          <default-field-of-view-deg>95</default-field-of-view-deg>
+        </config>
+     
+  </view>
+	
+	
     <current-view>
       <field-of-view>55.0</field-of-view>
     </current-view>
@@ -130,22 +148,40 @@ English Electric Canberra B(I)8 simulation config.
       <path>Aircraft/CanberraBI8/Sounds/CanberraBI8-sound.xml</path>
     </sound>
 
-<!-- Panels -->
-    <panel>
-      <path>Aircraft/CanberraBI8/Panels/CanberraBI8-vfr-panel.xml</path>
-    </panel>
-    <panel_2>
-      <path>Aircraft/CanberraBI8/Panels/CanberraBI8-mini-panel.xml</path>
-    </panel_2>
+
 
 <!-- Hud -->
     <hud>
+      <path n="1">Aircraft/CanberraBI8/Huds/hud2.xml</path>
       <visibility n="1">true</visibility>
+   <palette>
+    <color n="0">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">0.38</red>
+     <green type="float">1.0</green>
+     <blue type="float">0.22</blue>
+    </color>
+    <color n="1">
+     <alpha type="float">0.85</alpha>
+     <antialiased type="bool">true</antialiased>
+     <brightness type="float">0.85</brightness>
+     <transparent type="bool">true</transparent>
+     <red type="float">1.0</red>
+     <green type="float">0.2</green>
+     <blue type="float">0.0</blue>
+    </color>
+   </palette>
     </hud>
 
 <!-- Model -->
     <model>
-      <path>Aircraft/CanberraBI8/Models/CanberraBI8-model.xml</path>
+       <path>Aircraft/CanberraBI8/Models/CanberraBI8.xml</path>
+	  <livery>
+<file type="string"/>
+</livery>
       <CanberraBI8>
         <inner-haze>0.5</inner-haze>
         <outer-haze>0.25</outer-haze>
@@ -183,6 +219,8 @@ English Electric Canberra B(I)8 simulation config.
       <setting>1.00</setting>
     </spoilers>
 
+	
+	<menubar include="Dialogs/canberra-menu.xml"/>
   </sim>
 	
 	<ai>
@@ -313,6 +351,26 @@ English Electric Canberra B(I)8 simulation config.
           <script>CanberraBI8.update_drop_view_pos()</script>
         </binding>
       </key>
+	  
+	  <key n="123">
+     <name>}</name>
+     <desc>Engine Autostop</desc>
+    <binding>
+        <command>nasal</command>
+        <script>emu.autostop();</script>
+    </binding>
+  </key>
+  
+   <key n="125">
+     <name>}</name>
+     <desc>Engine Autostart</desc>
+    <binding>
+        <command>nasal</command>
+        <script>emu.autostart();</script>
+    </binding>
+  </key>
+	  
+	  
     </keyboard>
   </input>
 
@@ -358,8 +416,23 @@ English Electric Canberra B(I)8 simulation config.
   <nasal>
     <CanberraBI8>
       <file>Aircraft/CanberraBI8/Nasal/CanberraBI8.nas</file>
+<file>Aircraft/CanberraBI8/Nasal/light.nas</file>
+
       <script>start_up();</script>
+	  <file>Aircraft/CanberraBI8/Nasal/light.nas</file>
+	  <file>Aircraft/CanberraBI8/Nasal/liveries.nas</file>
     </CanberraBI8>
+	<low>
+      <file>Aircraft/CanberraBI8/Nasal/low.nas</file>
+    </low>
+	
+ <engines>
+   <file>Aircraft/CanberraBI8/Nasal/generic-yasim-engine.nas</file>
+  </engines>
+  
+  <emu>
+   <file>Aircraft/CanberraBI8/Nasal/emu.nas</file>
+  </emu>
   </nasal>
 
 </PropertyList>

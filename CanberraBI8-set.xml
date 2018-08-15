@@ -17,6 +17,28 @@ English Electric Canberra B(I)8 simulation config.
     <fuel-fraction>1.0</fuel-fraction>
 
     <description>English Electric Canberra B(I)8 (YASim FDM)</description>
+
+    <rating>
+      <FDM type="int">     2 </FDM>
+      <systems type="int"> 1 </systems>
+      <cockpit type="int"> 2 </cockpit>
+      <model type="int">   2 </model>
+    </rating>
+
+    <tags>
+      <tag>1950s</tag>
+      <tag>1960s</tag>
+      <tag>1970s</tag>
+      <tag>1980s</tag>
+      <tag>1990s</tag>
+      <tag>bomber</tag>
+      <tag>vietnam</tag>
+      <tag>retractable-gear</tag>
+      <tag>jet</tag>
+      <tag>ifr</tag>
+      <tag>twin-engine</tag>
+
+    </tags>
     
     <startup>
       <splash-texture>Aircraft/CanberraBI8/CanberraBI8-splash.rgb</splash-texture>
